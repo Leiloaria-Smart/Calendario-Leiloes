@@ -1,0 +1,11 @@
+node_modules/
+npm-debug.log*
+
+# arquivos locais / SO
+.DS_Store
+Thumbs.db
+*.local
+
+# HTML bruto baixado durante depuração do scraper
+*.html.bak
+busca.html

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calendário de Leilões | Leiloaria Smart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --azul:#00b9ff;
+    --azul-escuro:#0090c7;
+    --amarelo:#fdaf08;
+    --texto:#1d2429;
+    --texto-fraco:#6b7780;
+    --linha:#e3e8ec;
+    --fundo:#f3f3f3;
+    --card:#fff;
+    --raio:10px;
+    --sombra:0 1px 3px rgba(16,32,44,.08), 0 8px 24px rgba(16,32,44,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:Montserrat,-apple-system,"Segoe UI",Roboto,sans-serif;
+    background:var(--fundo);color:var(--texto);
+    -webkit-font-smoothing:antialiased;line-height:1.5;
+  }
+  .wrap{max-width:1240px;margin:0 auto;padding:24px 20px 64px}
+
+  /* ---------------------------------------------------------- cabeçalho */
+  header{margin-bottom:24px}
+  h1{font-size:26px;font-weight:700;letter-spacing:-.4px}
+  h1 span{color:var(--azul)}
+  .sub{color:var(--texto-fraco);font-size:13px;margin-top:4px}
+  .sub b{color:var(--texto);font-weight:600}
+
+  /* ------------------------------------------------------------- layout */
+  .grid{display:grid;grid-template-columns:1fr 400px;gap:20px;align-items:start}
+  @media(max-width:960px){.grid{grid-template-columns:1fr}}
+
+  .painel{background:var(--card);border-radius:var(--raio);box-shadow:var(--sombra);overflow:hidden}
+
+  /* ---------------------------------------------------------- navegação */
+  .nav{display:flex;align-items:center;justify-content:space-between;
+       padding:16px 18px;border-bottom:1px solid var(--linha)}
+  .nav h2{font-size:17px;font-weight:600}
+  .nav h2::first-letter{text-transform:uppercase}
+  .nav-btns{display:flex;gap:8px}
+  .nav button{
+    width:34px;height:34px;border:1px solid var(--linha);background:#fff;
+    border-radius:8px;cursor:pointer;font-size:16px;color:var(--texto);
+    display:flex;align-items:center;justify-content:center;transition:.15s;
+  }
+  .nav button:hover:not(:disabled){border-color:var(--azul);color:var(--azul)}
+  .nav button:disabled{opacity:.35;cursor:not-allowed}
+
+  /* --------------------------------------------------------- calendário */
+  .semana{display:grid;grid-template-columns:repeat(7,1fr);
+          padding:10px 12px 4px;gap:6px}
+  .semana div{text-align:center;font-size:11px;font-weight:600;
+              color:var(--texto-fraco);text-transform:uppercase;letter-spacing:.5px}
+  .dias{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:4px 12px 16px}
+
+  .dia{
+    position:relative;min-height:86px;border:1px solid var(--linha);
+    border-radius:8px;padding:7px 8px;background:#fff;text-align:left;
+    font-family:inherit;cursor:default;transition:.15s;display:flex;flex-direction:column;
+  }
+  .dia.vazio{border:none;background:transparent}
+  .dia .num{font-size:14px;font-weight:600;color:var(--texto-fraco)}
+  .dia.fora .num{opacity:.3}
+  .dia.hoje{border-color:var(--azul);box-shadow:0 0 0 1px var(--azul) inset}
+  .dia.hoje .num{color:var(--azul)}
+
+  .dia.tem{cursor:pointer;border-color:#cfe9f7;background:#f7fcff}
+  .dia.tem:hover{border-color:var(--azul);transform:translateY(-1px);
+                 box-shadow:0 4px 12px rgba(0,185,255,.18)}
+  .dia.tem .num{color:var(--texto)}
+  .dia.sel{border-color:var(--azul);background:#e8f7ff;
+           box-shadow:0 0 0 2px rgba(0,185,255,.35)}
+
+  .qtd{margin-top:auto;font-size:12px;font-weight:600;color:var(--azul-escuro)}
+  .qtd b{font-size:16px;display:block;line-height:1.15;color:var(--azul-escuro)}
+  .horas{font-size:10px;color:var(--texto-fraco);margin-top:2px;
+         white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dia.passado{opacity:.5}
+  .dia.passado .qtd b,.dia.passado .qtd{color:var(--texto-fraco)}
+
+  /* ------------------------------------------------------------ legenda */
+  .legenda{display:flex;flex-wrap:wrap;gap:16px;padding:0 18px 16px;
+           font-size:11px;color:var(--texto-fraco)}
+  .legenda i{display:inline-block;width:11px;height:11px;border-radius:3px;
+             margin-right:6px;vertical-align:-1px}
+
+  /* ------------------------------------------------------ painel do dia */
+  .lateral{position:sticky;top:20px}
+  .lateral-topo{padding:16px 18px;border-bottom:1px solid var(--linha)}
+  .lateral-topo h3{font-size:16px;font-weight:600}
+  .lateral-topo p{font-size:12px;color:var(--texto-fraco);margin-top:2px}
+  .busca{width:100%;margin-top:12px;padding:8px 11px;border:1px solid var(--linha);
+         border-radius:8px;font-family:inherit;font-size:13px;outline:none}
+  .busca:focus{border-color:var(--azul)}
+
+  .lista{max-height:min(70vh,720px);overflow-y:auto}
+  .lote{display:flex;gap:11px;padding:13px 18px;border-bottom:1px solid var(--linha);
+        text-decoration:none;color:inherit;transition:.12s}
+  .lote:hover{background:#f7fcff}
+  .lote:last-child{border-bottom:none}
+  .lote img,.sem-foto{width:62px;height:62px;object-fit:cover;border-radius:7px;
+            background:var(--linha);flex-shrink:0}
+  .sem-foto{display:flex;align-items:center;justify-content:center;
+            font-size:9px;color:var(--texto-fraco);text-align:center}
+  .lote-info{min-width:0;flex:1}
+  .lote-topo{display:flex;align-items:center;gap:7px;margin-bottom:3px;flex-wrap:wrap}
+  .hora{font-size:12px;font-weight:700;color:var(--texto)}
+  .tag{font-size:9.5px;font-weight:600;padding:2px 6px;border-radius:4px;
+       text-transform:uppercase;letter-spacing:.3px}
+  .tag.praca{background:#e8f7ff;color:var(--azul-escuro)}
+  .tag.unica{background:#fff3d6;color:#9a6800}
+  .tag.desconto{background:#e9f9ee;color:#177245}
+  .tag.acima{background:#f1f3f4;color:#7a828a}
+  .lote h4{font-size:13px;font-weight:600;line-height:1.35;margin-bottom:3px;
+           display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .meta{font-size:11px;color:var(--texto-fraco)}
+  .valor{font-size:13px;font-weight:700;color:var(--azul-escuro);margin-top:3px}
+  .seta{align-self:center;color:var(--linha);font-size:18px;flex-shrink:0}
+  .lote:hover .seta{color:var(--azul)}
+
+  .vazio-msg{padding:44px 24px;text-align:center;color:var(--texto-fraco);font-size:13px}
+  .vazio-msg strong{display:block;font-size:14px;color:var(--texto);margin-bottom:5px}
+
+  /* --------------------------------------------------------- telas pequenas */
+  @media(max-width:560px){
+    .wrap{padding:16px 12px 40px}
+    h1{font-size:21px}
+    .semana,.dias{padding-left:8px;padding-right:8px;gap:4px}
+    .dia{min-height:64px;padding:5px 4px;border-radius:6px}
+    .dia .num{font-size:12px}
+    .qtd{font-size:0}                    /* esconde a palavra "lotes" */
+    .qtd b{font-size:15px}
+    .horas{display:none}                 /* horários não cabem: ficam na lista */
+    .lote{padding:12px 14px;gap:9px}
+    .lote img,.sem-foto{width:52px;height:52px}
+    .lateral{position:static}
+    .lista{max-height:none}
+  }
+
+  footer{margin-top:22px;font-size:11px;color:var(--texto-fraco);text-align:center}
+  footer a{color:var(--azul-escuro)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Calendário de <span>Leilões</span></h1>
+    <p class="sub" id="resumo">Carregando…</p>
+  </header>
+
+  <div class="grid">
+
+    <!-- ------------------------------------------------ calendário -->
+    <section class="painel">
+      <div class="nav">
+        <h2 id="mesAtual">—</h2>
+        <div class="nav-btns">
+          <button id="btnAnt" title="Mês anterior">&#8249;</button>
+          <button id="btnProx" title="Próximo mês">&#8250;</button>
+        </div>
+      </div>
+      <div class="semana">
+        <div>dom</div><div>seg</div><div>ter</div><div>qua</div>
+        <div>qui</div><div>sex</div><div>sáb</div>
+      </div>
+      <div class="dias" id="dias"></div>
+      <div class="legenda">
+        <span><i style="background:#f7fcff;border:1px solid #cfe9f7"></i>dia com lotes</span>
+        <span><i style="background:#fff;border:1px solid var(--azul)"></i>hoje</span>
+        <span><i style="background:#e8f7ff"></i>dia selecionado</span>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------ painel do dia -->
+    <aside class="painel lateral">
+      <div class="lateral-topo">
+        <h3 id="diaTitulo">Selecione um dia</h3>
+        <p id="diaSub">Clique em um dia do calendário para ver os lotes.</p>
+        <input class="busca" id="busca" type="search"
+               placeholder="Filtrar por cidade, tipo ou título…" hidden>
+      </div>
+      <div class="lista" id="lista">
+        <div class="vazio-msg">
+          <strong>Nenhum dia selecionado</strong>
+          Os dias marcados em azul têm lotes agendados.
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer>
+    Dados extraídos de <a href="https://leiloariasmart.com.br" target="_blank" rel="noopener">leiloariasmart.com.br</a>
+    &middot; <span id="atualizado"></span>
+  </footer>
+</div>
+
+<script src="lotes.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  var MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho',
+               'agosto','setembro','outubro','novembro','dezembro'];
+
+  var dados = window.DADOS_LEILAO;
+  if (!dados) {
+    document.getElementById('resumo').textContent =
+      'Erro: lotes.js não encontrado. Rode "node scraper.js" para gerar os dados.';
+    return;
+  }
+
+  // ------------------------------------------------- índice: data -> eventos
+  // cada praça vira um evento no dia em que acontece
+  var porDia = {};
+  dados.lotes.forEach(function(lote){
+    lote.pracas.forEach(function(p){
+      (porDia[p.data] = porDia[p.data] || []).push({
+        hora: p.hora || '',
+        rotulo: p.rotulo,
+        valor: p.valor,
+        encerrada: p.encerrada,
+        lote: lote
+      });
+    });
+  });
+  Object.keys(porDia).forEach(function(d){
+    porDia[d].sort(function(a,b){
+      return (a.hora||'').localeCompare(b.hora||'') ||
+             (a.lote.titulo||'').localeCompare(b.lote.titulo||'');
+    });
+  });
+
+  var datas = Object.keys(porDia).sort();
+  var hojeISO = new Date().toISOString().slice(0,10);
+
+  // limites de navegação: do mês da 1ª data ao mês da última
+  function mesDe(iso){ return {a:+iso.slice(0,4), m:+iso.slice(5,7)-1}; }
+  var lim = { ini: mesDe(datas[0]), fim: mesDe(datas[datas.length-1]) };
+
+  // abre no mês de hoje se ele estiver no intervalo, senão no 1º mês com dados
+  var vista = (hojeISO >= datas[0] && hojeISO <= datas[datas.length-1])
+            ? mesDe(hojeISO) : {a:lim.ini.a, m:lim.ini.m};
+
+  var selecionado = null;
+
+  // ------------------------------------------------------------- cabeçalho
+  var totalPracas = datas.reduce(function(s,d){ return s + porDia[d].length; },0);
+  document.getElementById('resumo').innerHTML =
+    '<b>' + dados.total + '</b> imóveis · <b>' + totalPracas + '</b> praças agendadas · ' +
+    'de <b>' + fmtBr(datas[0]) + '</b> a <b>' + fmtBr(datas[datas.length-1]) + '</b>';
+  document.getElementById('atualizado').textContent =
+    'atualizado em ' + new Date(dados.atualizadoEm).toLocaleString('pt-BR');
+
+  function fmtBr(iso){
+    var p = iso.split('-');
+    return p[2] + '/' + p[1] + '/' + p[0];
+  }
+
+  // ------------------------------------------------------ render calendário
+  function render(){
+    var a = vista.a, m = vista.m;
+    document.getElementById('mesAtual').textContent = MESES[m] + ' de ' + a;
+
+    document.getElementById('btnAnt').disabled =
+      (a < lim.ini.a) || (a === lim.ini.a && m <= lim.ini.m);
+    document.getElementById('btnProx').disabled =
+      (a > lim.fim.a) || (a === lim.fim.a && m >= lim.fim.m);
+
+    var primeiro = new Date(a, m, 1);
+    var totalDias = new Date(a, m + 1, 0).getDate();
+    var offset = primeiro.getDay();
+
+    var html = '';
+    for (var i = 0; i < offset; i++) html += '<div class="dia vazio"></div>';
+
+    for (var d = 1; d <= totalDias; d++) {
+      var iso = a + '-' + pad(m + 1) + '-' + pad(d);
+      var evs = porDia[iso];
+      var cls = 'dia';
+      if (evs) cls += ' tem';
+      if (iso === hojeISO) cls += ' hoje';
+      if (iso === selecionado) cls += ' sel';
+      if (iso < hojeISO) cls += ' passado';
+
+      html += '<' + (evs ? 'button' : 'div') + ' class="' + cls + '"' +
+              (evs ? ' data-dia="' + iso + '"' : '') + '>' +
+              '<span class="num">' + d + '</span>';
+
+      if (evs) {
+        var horas = {};
+        evs.forEach(function(e){ if (e.hora) horas[e.hora] = 1; });
+        var listaH = Object.keys(horas).sort();
+        html += '<span class="qtd"><b>' + evs.length + '</b>' +
+                (evs.length === 1 ? 'lote' : 'lotes') + '</span>' +
+                '<span class="horas">' +
+                listaH.slice(0,2).join(' · ') +
+                (listaH.length > 2 ? ' +' + (listaH.length - 2) : '') +
+                '</span>';
+      }
+      html += '</' + (evs ? 'button' : 'div') + '>';
+    }
+    document.getElementById('dias').innerHTML = html;
+  }
+
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+
+  // ------------------------------------------------------ painel do dia
+  function abrirDia(iso){
+    selecionado = iso;
+    render();
+
+    var evs = porDia[iso] || [];
+    var dt = new Date(iso + 'T12:00:00');
+    var diaSemana = ['domingo','segunda-feira','terça-feira','quarta-feira',
+                     'quinta-feira','sexta-feira','sábado'][dt.getDay()];
+
+    document.getElementById('diaTitulo').textContent =
+      dt.getDate() + ' de ' + MESES[dt.getMonth()] + ' de ' + dt.getFullYear();
+    document.getElementById('diaSub').textContent =
+      diaSemana + ' · ' + evs.length + (evs.length === 1 ? ' lote' : ' lotes');
+
+    var busca = document.getElementById('busca');
+    busca.hidden = evs.length < 6;
+    busca.value = '';
+    desenharLista(evs);
+  }
+
+  function desenharLista(evs){
+    var alvo = document.getElementById('lista');
+    if (!evs.length) {
+      alvo.innerHTML = '<div class="vazio-msg"><strong>Nada encontrado</strong>' +
+                       'Tente outro termo de busca.</div>';
+      return;
+    }
+    alvo.innerHTML = evs.map(function(e){
+      var l = e.lote;
+      var unica = /única/i.test(e.rotulo);
+      var local = [l.cidade, l.uf].filter(Boolean).join('/');
+
+      // o site publica percentuais negativos (lance acima da avaliação):
+      // nesse caso não é desconto, então muda o rótulo e a cor
+      var pct = l.desconto ? parseFloat(l.desconto) : null;
+      var tagDesc = '';
+      if (pct != null && !isNaN(pct)) {
+        tagDesc = pct < 0
+          ? '<span class="tag acima">' + Math.abs(pct) + '% acima</span>'
+          : '<span class="tag desconto">' + pct + '% OFF</span>';
+      }
+      return '' +
+        '<a class="lote" href="' + l.url + '" target="_blank" rel="noopener">' +
+          (l.imagem
+            ? '<img src="' + l.imagem + '" alt="" loading="lazy" ' +
+              'onerror="this.replaceWith(Object.assign(document.createElement(\'div\'),' +
+              '{className:\'sem-foto\',textContent:\'sem foto\'}))">'
+            : '<div class="sem-foto">sem foto</div>') +
+          '<div class="lote-info">' +
+            '<div class="lote-topo">' +
+              '<span class="hora">' + (e.hora || '--:--') + '</span>' +
+              '<span class="tag ' + (unica ? 'unica' : 'praca') + '">' + e.rotulo + '</span>' +
+              tagDesc +
+            '</div>' +
+            '<h4>' + esc(l.titulo) + '</h4>' +
+            '<div class="meta">' + esc(l.tipo) + (local ? ' · ' + esc(local) : '') +
+              (l.situacao ? ' · ' + esc(l.situacao) : '') + '</div>' +
+            (e.valor ? '<div class="valor">' + e.valor + '</div>' : '') +
+          '</div>' +
+          '<span class="seta">&#8250;</span>' +
+        '</a>';
+    }).join('');
+    alvo.scrollTop = 0;
+  }
+
+  function esc(s){
+    return String(s == null ? '' : s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  // ------------------------------------------------------------- eventos
+  document.getElementById('dias').addEventListener('click', function(ev){
+    var btn = ev.target.closest('[data-dia]');
+    if (btn) abrirDia(btn.getAttribute('data-dia'));
+  });
+
+  document.getElementById('btnAnt').addEventListener('click', function(){
+    if (--vista.m < 0) { vista.m = 11; vista.a--; }
+    render();
+  });
+  document.getElementById('btnProx').addEventListener('click', function(){
+    if (++vista.m > 11) { vista.m = 0; vista.a++; }
+    render();
+  });
+
+  document.getElementById('busca').addEventListener('input', function(){
+    var q = this.value.toLowerCase().trim();
+    var evs = porDia[selecionado] || [];
+    if (!q) return desenharLista(evs);
+    desenharLista(evs.filter(function(e){
+      var l = e.lote;
+      return [l.titulo, l.tipo, l.cidade, l.uf, l.comitente, l.situacao]
+        .filter(Boolean).join(' ').toLowerCase().indexOf(q) > -1;
+    }));
+  });
+
+  // ------------------------------------------------------------- início
+  render();
+  // abre o próximo dia com lotes a partir de hoje
+  var proximo = datas.find(function(d){ return d >= hojeISO; }) || datas[0];
+  abrirDia(proximo);
+})();
+</script>
+</body>
+</html>
