@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calendário de Leilões | Leiloaria Smart</title>
+<title>Calendário Leiloaria Smart</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,15 +12,20 @@
     --azul:#00b9ff;
     --azul-escuro:#0090c7;
     --amarelo:#fdaf08;
-    --texto:#1d2429;
+    --texto:#16202a;
     --texto-fraco:#6b7780;
-    --linha:#e3e8ec;
-    --fundo:#f3f3f3;
+    --linha:#e6eaed;
+    --linha-forte:#d3dadf;
+    --fundo:#fff;
     --card:#fff;
-    --raio:10px;
-    --sombra:0 1px 3px rgba(16,32,44,.08), 0 8px 24px rgba(16,32,44,.06);
+    --raio:8px;
+    /* uma sombra só, discreta, e apenas no painel principal — sombra em tudo
+       é o que faz a página parecer um monte de cartões flutuando */
+    --sombra:none;
   }
   *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   body{
     font-family:Montserrat,-apple-system,"Segoe UI",Roboto,sans-serif;
     background:var(--fundo);color:var(--texto);
@@ -29,17 +34,145 @@
   .wrap{max-width:1240px;margin:0 auto;padding:24px 20px 64px}
 
   /* ---------------------------------------------------------- cabeçalho */
-  header{margin-bottom:24px}
+  header{display:flex;align-items:flex-start;justify-content:space-between;
+         gap:16px;flex-wrap:wrap;margin-bottom:20px}
   h1{font-size:26px;font-weight:700;letter-spacing:-.4px}
   h1 span{color:var(--azul)}
   .sub{color:var(--texto-fraco);font-size:13px;margin-top:4px}
   .sub b{color:var(--texto);font-weight:600}
 
+  .cab-acoes{display:flex;gap:8px;flex-shrink:0;padding-top:3px}
+  .btn-cab{display:inline-flex;align-items:center;gap:6px;padding:9px 15px;
+           border:1px solid var(--linha);border-radius:9px;background:#fff;
+           font-family:inherit;font-size:12.5px;font-weight:600;color:var(--texto);
+           text-decoration:none;cursor:pointer;white-space:nowrap;transition:.15s}
+  .btn-cab:hover{border-color:var(--azul);color:var(--azul-escuro)}
+  /* texto #4a3200 sobre o âmbar dá 6,47:1 — passa AA */
+  .btn-cab.primario{background:var(--amarelo);border-color:var(--amarelo);color:#4a3200}
+  .btn-cab.primario:hover{background:#e89f05;border-color:#e89f05;color:#4a3200}
+
+  /* --------------------------------------------------------------- KPIs */
+  /* faixa de números, não uma grade de cartões: os fios em cima e embaixo
+     agrupam o conjunto sem precisar de seis molduras */
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));
+        gap:18px 30px;padding:18px 0 20px;margin-bottom:30px;
+        border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+  .kpi .rot{font-size:10.5px;font-weight:600;color:var(--texto-fraco);
+            text-transform:uppercase;letter-spacing:.6px;line-height:1.3}
+  .kpi .val{font-size:27px;font-weight:700;letter-spacing:-.8px;margin-top:3px;
+            color:var(--texto);line-height:1.1}
+  .kpi .obs{font-size:11px;color:var(--texto-fraco);margin-top:2px}
+
+  /* ------------------------------------------------- feirões em destaque */
+  .secao{margin-bottom:34px}
+  .secao-titulo{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;
+                flex-wrap:wrap}
+  .secao-titulo h2{font-size:12px;font-weight:700;letter-spacing:.7px;
+                   text-transform:uppercase;color:var(--texto)}
+  .secao-titulo span{font-size:11.5px;color:var(--texto-fraco)}
+
+  /* única coisa da página, fora o calendário, que ganha moldura — é o
+     "destaque" do nome, e cada card é clicável */
+  .feiroes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+           gap:12px}
+  .fcard{background:var(--card);border:1px solid var(--linha-forte);
+         border-left:3px solid var(--amarelo);border-radius:var(--raio);
+         padding:13px 15px;text-align:left;font-family:inherit;
+         cursor:pointer;display:block;width:100%;transition:.15s}
+  .fcard:hover{background:#fffdf6;border-color:#f0c775;
+               border-left-color:#d99400}
+  .fcard:hover .fcard-data{color:var(--azul-escuro)}
+  .fcard-topo{display:flex;align-items:baseline;gap:7px}
+  .fcard-data{font-size:14px;font-weight:700;letter-spacing:-.2px;transition:.15s}
+  .fcard-dia{font-size:10px;color:var(--texto-fraco);text-transform:uppercase;
+             letter-spacing:.4px}
+  .fcard-lotes{font-size:25px;font-weight:700;color:var(--texto);line-height:1.15;
+               margin-top:2px}
+  .fcard-lotes small{font-size:11.5px;font-weight:500;color:var(--texto-fraco);
+                     margin-left:5px;letter-spacing:0}
+  .fcard-meta{font-size:11.5px;color:var(--texto-fraco);margin-top:1px}
+  /* o nome do credor pode truncar (fica no title), mas a proporção nunca:
+     é ela que diz o quanto o credor domina o dia */
+  .fcard-credor{font-size:11px;color:var(--texto-fraco);margin-top:3px;
+                white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  /* ---------------------------------------------------------- dashboards */
+  /* estética do painel do Lovable: card branco r=14, borda fina, cor de
+     destaque por gráfico, eixo Y com marcas. As cores #00a6ea e #faa628 ficam
+     abaixo de 3:1 contra o branco, então TODO valor é rotulado — é a
+     compensação que o validador exige para poder usá-las. */
+  .dashes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+          gap:26px 36px}
+  .dash{padding-top:12px;border-top:1px solid var(--linha)}
+  .dash h3{font-size:12.5px;font-weight:700;letter-spacing:-.1px}
+  .dash .dash-sub{font-size:11px;color:#626a75;margin-top:1px;margin-bottom:14px}
+  .dash-vazio{font-size:12px;color:#626a75;padding:26px 0;text-align:center}
+
+  /* -------- colunas verticais (faixas de preço, estados) -------- */
+  .graf{position:relative;padding-left:24px}
+  .graf-y{position:absolute;left:0;top:0;bottom:26px;width:24px}
+  .graf-y i{position:absolute;right:5px;transform:translateY(50%);font-style:normal;
+            font-size:9.5px;color:#626a75;font-variant-numeric:tabular-nums}
+  .graf-linha{position:absolute;left:24px;right:0;border-top:1px solid #eef1f4}
+  .graf-cols{display:flex;align-items:flex-end;gap:5px;height:132px;
+             border-left:1px solid #dadee5;border-bottom:1px solid #dadee5;
+             position:relative;padding:0 2px}
+  .graf-col{flex:1;min-width:0;display:flex;flex-direction:column;
+            justify-content:flex-end;align-items:center;height:100%}
+  .graf-val{font-size:9.5px;font-weight:700;color:var(--texto);margin-bottom:2px;
+            font-variant-numeric:tabular-nums;line-height:1}
+  .graf-barra{width:100%;max-width:30px;border-radius:3px 3px 0 0;min-height:2px;
+              transition:height .18s}
+  .graf-rots{display:flex;gap:5px;margin-top:5px;padding:0 2px}
+  .graf-rots span{flex:1;min-width:0;font-size:9.5px;color:#626a75;text-align:center;
+                  line-height:1.25;overflow-wrap:anywhere}
+
+  /* -------- barras horizontais (tipos: rótulos longos) --------
+     mesma forma que o Lovable usa no gráfico de credores, pelo mesmo motivo */
+  .barra{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+  .barra:last-child{margin-bottom:0}
+  .barra-rot{width:126px;flex-shrink:0;font-size:11.5px;color:var(--texto);
+             white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .barra-trilho{flex:1;height:11px;background:#f1f4f7;border-radius:3px;
+                position:relative;min-width:20px}
+  .barra-fill{position:absolute;left:0;top:0;height:100%;background:#00a6ea;
+              border-radius:3px;min-width:2px;transition:width .18s}
+  .barra-val{width:30px;flex-shrink:0;font-size:11.5px;font-weight:700;
+             text-align:right;font-variant-numeric:tabular-nums;color:var(--texto)}
+
+  /* ------------------------------------------------------------ filtros */
+  .filtros{padding:16px 0 20px;margin-bottom:24px;
+           border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+  .filtros-topo{display:flex;align-items:center;justify-content:space-between;
+                gap:12px;margin-bottom:12px;flex-wrap:wrap}
+  .filtros-topo h3{font-size:12px;font-weight:700;text-transform:uppercase;
+                   letter-spacing:.7px;color:var(--texto)}
+  .filtros-info{font-size:12px;color:var(--texto-fraco)}
+  .filtros-info b{color:var(--azul-escuro);font-weight:700}
+  .btn-limpar{border:1px solid var(--linha);background:#fff;border-radius:7px;
+              padding:5px 11px;font-family:inherit;font-size:11.5px;font-weight:600;
+              color:var(--texto-fraco);cursor:pointer;transition:.15s}
+  .btn-limpar:hover{border-color:var(--azul);color:var(--azul)}
+  .btn-limpar:disabled{opacity:.4;cursor:not-allowed;border-color:var(--linha);color:var(--texto-fraco)}
+
+  .filtros-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:10px}
+  .campo label{display:block;font-size:10px;font-weight:600;color:var(--texto-fraco);
+               text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
+  .campo select{width:100%;padding:8px 10px;border:1px solid var(--linha);
+                border-radius:8px;font-family:inherit;font-size:12.5px;background:#fff;
+                color:var(--texto);outline:none;cursor:pointer;appearance:none;
+                background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%236b7780' d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E");
+                background-repeat:no-repeat;background-position:right 10px center;
+                background-size:10px;padding-right:28px}
+  .campo select:focus{border-color:var(--azul)}
+  .campo select.ativo{border-color:var(--azul);background-color:#f2fbff;font-weight:600}
+
   /* ------------------------------------------------------------- layout */
   .grid{display:grid;grid-template-columns:1fr 400px;gap:20px;align-items:start}
   @media(max-width:960px){.grid{grid-template-columns:1fr}}
 
-  .painel{background:var(--card);border-radius:var(--raio);box-shadow:var(--sombra);overflow:hidden}
+  .painel{background:var(--card);border:1px solid var(--linha-forte);
+          border-radius:var(--raio);overflow:hidden}
 
   /* ---------------------------------------------------------- navegação */
   .nav{display:flex;align-items:center;justify-content:space-between;
@@ -63,7 +196,7 @@
   .dias{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:4px 12px 16px}
 
   .dia{
-    position:relative;min-height:86px;border:1px solid var(--linha);
+    position:relative;min-height:80px;border:1px solid var(--linha);
     border-radius:8px;padding:7px 8px;background:#fff;text-align:left;
     font-family:inherit;cursor:default;transition:.15s;display:flex;flex-direction:column;
   }
@@ -77,13 +210,24 @@
   .dia.tem:hover{border-color:var(--azul);transform:translateY(-1px);
                  box-shadow:0 4px 12px rgba(0,185,255,.18)}
   .dia.tem .num{color:var(--texto)}
+
+  /* dia com mais de 10 lotes = feirão */
+  .dia.feirao{border-color:#ffdd93;background:#fffaef}
+  .dia.feirao:hover{border-color:var(--amarelo);
+                    box-shadow:0 4px 12px rgba(253,175,8,.22)}
+  .dia.feirao .qtd,.dia.feirao .qtd b{color:#a86e00}
+  .selo{position:absolute;top:6px;right:6px;background:var(--amarelo);color:#4a3200;
+        font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;
+        padding:2px 5px;border-radius:4px;line-height:1.25}
+  .dia.passado .selo{opacity:.7}
+
   .dia.sel{border-color:var(--azul);background:#e8f7ff;
            box-shadow:0 0 0 2px rgba(0,185,255,.35)}
+  .dia.feirao.sel{border-color:var(--amarelo);background:#fff3d9;
+                  box-shadow:0 0 0 2px rgba(253,175,8,.35)}
 
   .qtd{margin-top:auto;font-size:12px;font-weight:600;color:var(--azul-escuro)}
   .qtd b{font-size:16px;display:block;line-height:1.15;color:var(--azul-escuro)}
-  .horas{font-size:10px;color:var(--texto-fraco);margin-top:2px;
-         white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .dia.passado{opacity:.5}
   .dia.passado .qtd b,.dia.passado .qtd{color:var(--texto-fraco)}
 
@@ -113,13 +257,13 @@
             font-size:9px;color:var(--texto-fraco);text-align:center}
   .lote-info{min-width:0;flex:1}
   .lote-topo{display:flex;align-items:center;gap:7px;margin-bottom:3px;flex-wrap:wrap}
-  .hora{font-size:12px;font-weight:700;color:var(--texto)}
   .tag{font-size:9.5px;font-weight:600;padding:2px 6px;border-radius:4px;
        text-transform:uppercase;letter-spacing:.3px}
   .tag.praca{background:#e8f7ff;color:var(--azul-escuro)}
   .tag.unica{background:#fff3d6;color:#9a6800}
   .tag.desconto{background:#e9f9ee;color:#177245}
   .tag.acima{background:#f1f3f4;color:#7a828a}
+  .tag.feirao{background:var(--amarelo);color:#4a3200}
   .lote h4{font-size:13px;font-weight:600;line-height:1.35;margin-bottom:3px;
            display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .meta{font-size:11px;color:var(--texto-fraco)}
@@ -134,12 +278,17 @@
   @media(max-width:560px){
     .wrap{padding:16px 12px 40px}
     h1{font-size:21px}
+    .kpis{grid-template-columns:repeat(2,1fr);gap:8px}
+    .kpi{padding:11px 12px}
+    .kpi .val{font-size:19px}
+    .filtros-grid{grid-template-columns:repeat(2,1fr)}
     .semana,.dias{padding-left:8px;padding-right:8px;gap:4px}
-    .dia{min-height:64px;padding:5px 4px;border-radius:6px}
+    .dia{min-height:60px;padding:5px 4px;border-radius:6px}
     .dia .num{font-size:12px}
     .qtd{font-size:0}                    /* esconde a palavra "lotes" */
     .qtd b{font-size:15px}
-    .horas{display:none}                 /* horários não cabem: ficam na lista */
+    /* "FEIRÃO" não cabe numa célula de ~45px: vira um ponto */
+    .selo{font-size:0;padding:0;width:9px;height:9px;border-radius:50%;top:4px;right:4px}
     .lote{padding:12px 14px;gap:9px}
     .lote img,.sem-foto{width:52px;height:52px}
     .lateral{position:static}
@@ -154,11 +303,123 @@
 <div class="wrap">
 
   <header>
-    <h1>Calendário de <span>Leilões</span></h1>
-    <p class="sub" id="resumo">Carregando…</p>
+    <div>
+      <h1>Calendário <span>Leiloaria Smart</span></h1>
+      <p class="sub" id="resumo">Carregando…</p>
+    </div>
+    <div class="cab-acoes">
+      <a class="btn-cab" href="#calendario">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round"/>
+        </svg>
+        Calendário
+      </a>
+      <a class="btn-cab primario" href="https://leiloariasmart.com.br"
+         target="_blank" rel="noopener">
+        Site oficial
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M6 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V10"
+                stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M9.5 2.5H13.5V6.5M13 3l-6 6" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
   </header>
 
-  <div class="grid">
+  <!-- ------------------------------------------------ painel de números -->
+  <section class="kpis" id="kpis"></section>
+
+  <!-- ------------------------------------------------ feirões em destaque -->
+  <section class="secao" id="secaoFeiroes">
+    <div class="secao-titulo">
+      <h2>Feirões em destaque</h2>
+      <span id="subFeiroes"></span>
+    </div>
+    <div class="feiroes" id="feiroes"></div>
+  </section>
+
+  <!-- ---------------------------------------------------------- dashboards -->
+  <section class="secao">
+    <div class="secao-titulo">
+      <h2>Panorama</h2>
+      <span>distribuição dos imóveis do filtro atual</span>
+    </div>
+    <div class="dashes">
+      <div class="dash">
+        <h3>Por tipo de imóvel</h3>
+        <div class="dash-sub" id="subTipo"></div>
+        <div id="dashTipo"></div>
+      </div>
+      <div class="dash">
+        <h3>Faixas de lance mínimo</h3>
+        <div class="dash-sub" id="subFaixa"></div>
+        <div id="dashFaixa"></div>
+      </div>
+      <div class="dash">
+        <h3>Imóveis por estado</h3>
+        <div class="dash-sub" id="subUf"></div>
+        <div id="dashUf"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------- filtros -->
+  <section class="filtros">
+    <div class="filtros-topo">
+      <h3>Filtros</h3>
+      <div style="display:flex;align-items:center;gap:12px">
+        <span class="filtros-info" id="filtrosInfo"></span>
+        <button class="btn-limpar" id="btnLimpar" disabled>Limpar filtros</button>
+      </div>
+    </div>
+    <div class="filtros-grid">
+      <div class="campo">
+        <label for="fTipo">Tipo</label>
+        <select id="fTipo"><option value="">Todos</option></select>
+      </div>
+      <div class="campo">
+        <label for="fPreco">Lance mínimo</label>
+        <select id="fPreco">
+          <option value="">Qualquer valor</option>
+          <option value="0-100000">Até R$ 100 mil</option>
+          <option value="100000-300000">R$ 100 mil – 300 mil</option>
+          <option value="300000-500000">R$ 300 mil – 500 mil</option>
+          <option value="500000-1000000">R$ 500 mil – 1 mi</option>
+          <option value="1000000-">Acima de R$ 1 mi</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="fUf">Estado</label>
+        <select id="fUf"><option value="">Todos</option></select>
+      </div>
+      <div class="campo">
+        <label for="fCidade">Cidade</label>
+        <select id="fCidade"><option value="">Todas</option></select>
+      </div>
+      <div class="campo">
+        <label for="fPraca">Praça</label>
+        <select id="fPraca">
+          <option value="">Todas</option>
+          <option value="1">Primeira praça</option>
+          <option value="2">Segunda praça</option>
+          <option value="unica">Praça única</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="fLeilao">Leilão</label>
+        <select id="fLeilao"><option value="">Todos</option></select>
+      </div>
+      <div class="campo">
+        <label for="fSituacao">Situação</label>
+        <select id="fSituacao"><option value="">Todas</option></select>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid" id="calendario">
 
     <!-- ------------------------------------------------ calendário -->
     <section class="painel">
@@ -176,6 +437,7 @@
       <div class="dias" id="dias"></div>
       <div class="legenda">
         <span><i style="background:#f7fcff;border:1px solid #cfe9f7"></i>dia com lotes</span>
+        <span><i style="background:#fffaef;border:1px solid #ffdd93"></i>feirão (mais de 10 lotes)</span>
         <span><i style="background:#fff;border:1px solid var(--azul)"></i>hoje</span>
         <span><i style="background:#e8f7ff"></i>dia selecionado</span>
       </div>
@@ -220,55 +482,406 @@
     return;
   }
 
-  // ------------------------------------------------- índice: data -> eventos
-  // cada praça vira um evento no dia em que acontece
-  var porDia = {};
-  dados.lotes.forEach(function(lote){
-    lote.pracas.forEach(function(p){
-      (porDia[p.data] = porDia[p.data] || []).push({
-        hora: p.hora || '',
-        rotulo: p.rotulo,
-        valor: p.valor,
-        encerrada: p.encerrada,
-        lote: lote
-      });
-    });
-  });
-  Object.keys(porDia).forEach(function(d){
-    porDia[d].sort(function(a,b){
-      return (a.hora||'').localeCompare(b.hora||'') ||
-             (a.lote.titulo||'').localeCompare(b.lote.titulo||'');
-    });
-  });
-
-  var datas = Object.keys(porDia).sort();
+  var TODOS = dados.lotes;
   var hojeISO = new Date().toISOString().slice(0,10);
 
-  // limites de navegação: do mês da 1ª data ao mês da última
-  function mesDe(iso){ return {a:+iso.slice(0,4), m:+iso.slice(5,7)-1}; }
-  var lim = { ini: mesDe(datas[0]), fim: mesDe(datas[datas.length-1]) };
+  // regra de negócio: um dia com MAIS DE 10 lotes é um feirão
+  var FEIRAO_MIN = 10;
+  function ehFeirao(iso){
+    return !!porDia[iso] && porDia[iso].length > FEIRAO_MIN;
+  }
 
-  // abre no mês de hoje se ele estiver no intervalo, senão no 1º mês com dados
-  var vista = (hojeISO >= datas[0] && hojeISO <= datas[datas.length-1])
-            ? mesDe(hojeISO) : {a:lim.ini.a, m:lim.ini.m};
-
-  var selecionado = null;
-
-  // ------------------------------------------------------------- cabeçalho
-  var totalPracas = datas.reduce(function(s,d){ return s + porDia[d].length; },0);
-  document.getElementById('resumo').innerHTML =
-    '<b>' + dados.total + '</b> imóveis · <b>' + totalPracas + '</b> praças agendadas · ' +
-    'de <b>' + fmtBr(datas[0]) + '</b> a <b>' + fmtBr(datas[datas.length-1]) + '</b>';
-  document.getElementById('atualizado').textContent =
-    'atualizado em ' + new Date(dados.atualizadoEm).toLocaleString('pt-BR');
-
+  // ------------------------------------------------------------- helpers
+  function esc(s){
+    return String(s == null ? '' : s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
   function fmtBr(iso){
     var p = iso.split('-');
     return p[2] + '/' + p[1] + '/' + p[0];
   }
+  function mesDe(iso){ return {a:+iso.slice(0,4), m:+iso.slice(5,7)-1}; }
+
+  /** "R$ 470.000,00" -> 470000 */
+  function precoNum(s){
+    if (!s) return null;
+    var t = String(s).replace(/[^\d,]/g,'').replace(',','.');
+    var n = parseFloat(t);
+    return isNaN(n) ? null : n;
+  }
+  /** 113316345 -> "R$ 113,3 mi" */
+  function fmtDinheiro(n){
+    if (n == null) return '—';
+    if (n >= 1e9) return 'R$ ' + (n/1e9).toFixed(1).replace('.',',') + ' bi';
+    if (n >= 1e6) return 'R$ ' + (n/1e6).toFixed(1).replace('.',',') + ' mi';
+    if (n >= 1e3) return 'R$ ' + Math.round(n/1e3) + ' mil';
+    return 'R$ ' + Math.round(n);
+  }
+  function unicos(arr){
+    var vistos = {}, saida = [];
+    arr.forEach(function(v){
+      if (v && !vistos[v]) { vistos[v] = 1; saida.push(v); }
+    });
+    return saida.sort(function(a,b){ return a.localeCompare(b,'pt-BR'); });
+  }
+
+  // ------------------------------------------------------------- filtros
+  var filtros = { tipo:'', preco:'', uf:'', cidade:'', praca:'', leilao:'', situacao:'' };
+
+  var SEM_SITUACAO = '__vazio__';
+
+  function lotePassa(l){
+    if (filtros.tipo    && l.tipo       !== filtros.tipo)    return false;
+    if (filtros.uf      && l.uf         !== filtros.uf)      return false;
+    if (filtros.cidade  && l.cidade     !== filtros.cidade)  return false;
+    if (filtros.leilao  && l.modalidade !== filtros.leilao)  return false;
+
+    if (filtros.situacao) {
+      var s = l.situacao || '';
+      if (filtros.situacao === SEM_SITUACAO) { if (s) return false; }
+      else if (s !== filtros.situacao) return false;
+    }
+
+    if (filtros.preco) {
+      var n = precoNum(l.precoDestaque);
+      if (n == null) return false;
+      var p = filtros.preco.split('-');
+      var min = p[0] === '' ? null : +p[0];
+      var max = p[1] === '' ? null : +p[1];
+      if (min != null && n < min) return false;
+      if (max != null && n >= max) return false;
+    }
+    return true;
+  }
+
+  function pracaPassa(p){
+    if (!filtros.praca) return true;
+    var unica = /única|unica/i.test(p.rotulo || '');
+    if (filtros.praca === 'unica') return unica;
+    if (unica) return false;                       // única não é 1ª nem 2ª
+    return String(p.ordem) === filtros.praca;
+  }
+
+  // o calendário só mostra o que ainda vai acontecer — praça de data passada
+  // sai de tudo: calendário, feirões, KPIs e dashboards
+  function pracaFutura(p){ return p.data >= hojeISO; }
+  function pracaVale(p){ return pracaFutura(p) && pracaPassa(p); }
+
+  function contarAtivos(){
+    var n = 0;
+    for (var k in filtros) if (filtros[k]) n++;
+    return n;
+  }
+
+  // ---------------------------------------------- estado derivado (cache)
+  var lotesFiltrados = [], porDia = {}, datas = [], lim = null;
+  var vista = null, selecionado = null;
+
+  function recalcular(){
+    // um imóvel só entra na conta se passar nos filtros de imóvel E ainda
+    // sobrar ao menos uma praça depois do filtro de praça — senão ele apareceria
+    // no total de "imóveis em leilão" sem ter data nenhuma no calendário
+    lotesFiltrados = TODOS.filter(function(l){
+      return lotePassa(l) && l.pracas.some(pracaVale);
+    });
+
+    porDia = {};
+    lotesFiltrados.forEach(function(lote){
+      lote.pracas.forEach(function(p){
+        if (!pracaVale(p)) return;
+        (porDia[p.data] = porDia[p.data] || []).push({
+          hora: p.hora || '',
+          rotulo: p.rotulo,
+          valor: p.valor,
+          encerrada: p.encerrada,
+          lote: lote
+        });
+      });
+    });
+
+    // ordena cronologicamente dentro do dia (o horário não é exibido,
+    // mas continua definindo a ordem da lista)
+    Object.keys(porDia).forEach(function(d){
+      porDia[d].sort(function(a,b){
+        return (a.hora||'').localeCompare(b.hora||'') ||
+               (a.lote.titulo||'').localeCompare(b.lote.titulo||'');
+      });
+    });
+
+    datas = Object.keys(porDia).sort();
+    lim = datas.length
+        ? { ini: mesDe(datas[0]), fim: mesDe(datas[datas.length-1]) }
+        : null;
+  }
+
+  // ---------------------------------------------------------------- KPIs
+  function renderKpis(){
+    var ls = lotesFiltrados;
+    var feiroes = datas.filter(ehFeirao);
+
+    var precos = ls.map(function(l){ return precoNum(l.precoDestaque); })
+                   .filter(function(n){ return n != null; });
+    var vgv = precos.reduce(function(s,n){ return s + n; }, 0);
+
+    var cidades = unicos(ls.map(function(l){ return l.cidade; })).length;
+
+    // desconto médio considera só percentuais positivos: negativos no site
+    // significam lance ACIMA da avaliação, não desconto
+    var descs = ls.map(function(l){ return l.desconto ? parseFloat(l.desconto) : NaN; })
+                  .filter(function(n){ return !isNaN(n) && n > 0; });
+    var descMedio = descs.length
+      ? Math.round(descs.reduce(function(s,n){ return s + n; }, 0) / descs.length)
+      : null;
+
+    var desocupados = ls.filter(function(l){
+      return /desocupad/i.test(l.situacao || '');
+    }).length;
+
+    var cards = [
+      { rot:'Imóveis em leilão', val: ls.length,
+        obs: ls.length === TODOS.length ? 'total do catálogo' : 'de ' + TODOS.length + ' no total' },
+      { rot:'VGV em lances mínimos', val: fmtDinheiro(vgv),
+        obs: precos.length + ' de ' + ls.length + ' com preço' },
+      { rot:'Feirões', val: feiroes.length,
+        obs: feiroes.length
+          ? feiroes.reduce(function(s,d){ return s + porDia[d].length; }, 0) + ' lotes no total'
+          : 'nenhum dia com +' + FEIRAO_MIN + ' lotes' },
+      { rot:'Cidades', val: cidades,
+        obs: (function(n){ return n + (n === 1 ? ' estado' : ' estados'); })(
+               unicos(ls.map(function(l){ return l.uf; })).length) },
+      { rot:'Desconto médio', val: descMedio == null ? '—' : descMedio + '%',
+        obs: descs.length + ' com desconto informado' },
+      { rot:'Imóveis desocupados', val: desocupados,
+        obs: ls.length ? Math.round(desocupados / ls.length * 100) + '% do filtro' : '—' }
+    ];
+
+    document.getElementById('kpis').innerHTML = cards.map(function(c){
+      return '<div class="kpi">' +
+               '<div class="rot">' + esc(c.rot) + '</div>' +
+               '<div class="val">' + esc(String(c.val)) + '</div>' +
+               '<div class="obs">' + esc(c.obs) + '</div>' +
+             '</div>';
+    }).join('');
+  }
+
+  // ------------------------------------------------- feirões em destaque
+  var DIAS_CURTOS = ['dom','seg','ter','qua','qui','sex','sáb'];
+  var MAX_FEIROES = 5;
+
+  function renderFeiroes(){
+    var secao = document.getElementById('secaoFeiroes');
+    var todos = datas.filter(ehFeirao);
+
+    if (!todos.length) { secao.hidden = true; return; }
+    secao.hidden = false;
+
+    // no máximo 5 cards: ficam os 5 primeiros em ordem de data.
+    // se houver mais, o subtítulo avisa — nada de corte silencioso
+    var fs = todos.slice(0, MAX_FEIROES);
+    document.getElementById('subFeiroes').textContent = todos.length > MAX_FEIROES
+      ? 'mostrando os ' + MAX_FEIROES + ' primeiros de ' + todos.length +
+        ' · clique para abrir no calendário'
+      : 'dias com mais de ' + FEIRAO_MIN + ' lotes · clique para abrir no calendário';
+
+    document.getElementById('feiroes').innerHTML = fs.map(function(iso){
+      var evs = porDia[iso];
+      var dt = new Date(iso + 'T12:00:00');
+
+      var vgv = evs.reduce(function(s,e){
+        return s + (precoNum(e.lote.precoDestaque) || 0);
+      }, 0);
+
+      // credor com mais lotes no dia — é o que dá identidade ao feirão
+      var cont = {};
+      evs.forEach(function(e){
+        var c = e.lote.comitente || 'não informado';
+        cont[c] = (cont[c] || 0) + 1;
+      });
+      var principal = Object.keys(cont).sort(function(a,b){ return cont[b] - cont[a]; })[0];
+
+      var cidades = unicos(evs.map(function(e){ return e.lote.cidade; })).length;
+
+      return '<button class="fcard" data-ir="' + iso + '">' +
+        '<div class="fcard-topo">' +
+          '<span class="fcard-data">' + dt.getDate() + ' de ' + MESES[dt.getMonth()] + '</span>' +
+          '<span class="fcard-dia">' + DIAS_CURTOS[dt.getDay()] + '</span>' +
+        '</div>' +
+        '<div class="fcard-lotes">' + evs.length + '<small>lotes</small></div>' +
+        '<div class="fcard-meta">' + fmtDinheiro(vgv) + ' · ' + cidades +
+          (cidades === 1 ? ' cidade' : ' cidades') + '</div>' +
+        '<div class="fcard-credor" title="' + esc(principal) + ' — ' +
+            cont[principal] + ' de ' + evs.length + ' lotes">' +
+          esc(principal) + ' · ' +
+          Math.round(cont[principal] / evs.length * 100) + '%' +
+        '</div>' +
+      '</button>';
+    }).join('');
+  }
+
+  // ------------------------------------------------------------ dashboards
+  // rótulos curtos: cabem embaixo da coluna na horizontal, o que evita
+  // o texto na diagonal do painel do Lovable (que é mais difícil de ler)
+  var FAIXAS = [
+    ['até 100 mil',   0,       100000],
+    ['100–300 mil',   100000,  300000],
+    ['300–500 mil',   300000,  500000],
+    ['500 mil–1 mi',  500000,  1000000],
+    ['+ de 1 mi',     1000000, null]
+  ];
+
+  var COR_TIPO  = '#00a6ea';   // --chart-1 do Lovable
+  var COR_FAIXA = '#faa628';   // --chart-2
+  var COR_UF    = '#4c6ebd';   // --chart-3
+
+  function agrupar(ls, chave){
+    var c = {};
+    ls.forEach(function(l){
+      var k = chave(l) || 'não informado';
+      c[k] = (c[k] || 0) + 1;
+    });
+    return Object.keys(c)
+      .map(function(k){ return { rot:k, n:c[k] }; })
+      .sort(function(a,b){ return b.n - a.n || a.rot.localeCompare(b.rot,'pt-BR'); });
+  }
+
+  /** dobra a cauda longa em "Outros" em vez de virar uma lista interminável */
+  function topN(itens, n){
+    if (itens.length <= n + 1) return itens;
+    var cabeca = itens.slice(0, n);
+    var resto  = itens.slice(n);
+    cabeca.push({
+      rot: 'Outros (' + resto.length + ')',
+      rotCurto: '+' + resto.length,     // colunas estreitas não comportam o longo
+      n: resto.reduce(function(s,i){ return s + i.n; }, 0)
+    });
+    return cabeca;
+  }
+
+  /**
+   * Barras horizontais de série única: uma cor só para todas as barras.
+   * Colorir cada barra de um tom diferente seria codificar o ranking na cor,
+   * duplicando o que o comprimento já diz. O valor vai na ponta da barra,
+   * o que dispensa eixo e grade.
+   */
+  /** arredonda o topo do eixo para um número limpo divisível por 4 */
+  function topoEixo(max){
+    if (max <= 4) return 4;
+    var passo = Math.pow(10, Math.floor(Math.log10(max / 4)));
+    [1, 2, 2.5, 5, 10].some(function(m){
+      if (Math.ceil(max / (passo * m)) <= 4) { passo = passo * m; return true; }
+      return false;
+    });
+    return Math.ceil(max / passo) * passo;
+  }
+
+  /**
+   * Colunas verticais no padrão do painel do Lovable: eixo Y com 5 marcas,
+   * linhas de grade em hairline e o valor no topo de cada coluna. O rótulo
+   * numérico não é enfeite — as cores da paleta do Lovable ficam abaixo de 3:1
+   * contra o branco, e é ele que garante a leitura sem depender da barra.
+   */
+  function colunas(itens, alvoId, subId, subTexto, cor, total){
+    document.getElementById(subId).textContent = subTexto;
+    var alvo = document.getElementById(alvoId);
+
+    var max = itens.reduce(function(m,i){ return Math.max(m, i.n); }, 0);
+    if (!itens.length || !max) {
+      alvo.innerHTML = '<div class="dash-vazio">sem dados no filtro atual</div>';
+      return;
+    }
+
+    var topo = topoEixo(max), marcas = [0, 0.25, 0.5, 0.75, 1];
+
+    var eixo = marcas.map(function(f){
+      return '<i style="bottom:' + (f * 100) + '%">' + Math.round(topo * f) + '</i>';
+    }).join('');
+
+    var grade = marcas.slice(1).map(function(f){
+      return '<span class="graf-linha" style="bottom:' + (f * 100) + '%"></span>';
+    }).join('');
+
+    var cols = itens.map(function(i){
+      var alt = (i.n / topo * 100);
+      var pct = total ? Math.round(i.n / total * 100) : 0;
+      return '<div class="graf-col" title="' + esc(i.rot) + ': ' + i.n +
+               (total ? ' de ' + total + ' (' + pct + '%)' : '') + '">' +
+               '<span class="graf-val">' + i.n + '</span>' +
+               '<span class="graf-barra" style="height:' + alt.toFixed(1) +
+                 '%;background:' + cor + '"></span>' +
+             '</div>';
+    }).join('');
+
+    var rots = itens.map(function(i){
+      return '<span title="' + esc(i.rot) + '">' + esc(i.rotCurto || i.rot) + '</span>';
+    }).join('');
+
+    alvo.innerHTML =
+      '<div class="graf">' +
+        '<div class="graf-y">' + eixo + '</div>' +
+        '<div class="graf-cols">' + grade + cols + '</div>' +
+        '<div class="graf-rots">' + rots + '</div>' +
+      '</div>';
+  }
+
+  function barras(itens, alvoId, subId, subTexto, total){
+    var max = itens.reduce(function(m,i){ return Math.max(m, i.n); }, 0);
+    document.getElementById(subId).textContent = subTexto;
+
+    document.getElementById(alvoId).innerHTML = (itens.length && max)
+      ? itens.map(function(i){
+          var larg = max ? (i.n / max * 100) : 0;
+          var pct  = total ? Math.round(i.n / total * 100) : 0;
+          return '<div class="barra" title="' + esc(i.rot) + ': ' + i.n +
+                   (total ? ' de ' + total + ' (' + pct + '%)' : '') + '">' +
+                   '<span class="barra-rot">' + esc(i.rot) + '</span>' +
+                   '<span class="barra-trilho">' +
+                     '<span class="barra-fill" style="width:' + larg.toFixed(1) + '%"></span>' +
+                   '</span>' +
+                   '<span class="barra-val">' + i.n + '</span>' +
+                 '</div>';
+        }).join('')
+      : '<div class="dash-vazio">sem dados no filtro atual</div>';
+  }
+
+  function renderDashboards(){
+    var ls = lotesFiltrados, total = ls.length;
+
+    // tipos têm nomes longos ("Casa de Condomínio"): barra horizontal, que é a
+    // mesma forma que o Lovable usa no gráfico de credores, pelo mesmo motivo
+    barras(topN(agrupar(ls, function(l){ return l.tipo; }), 7),
+           'dashTipo', 'subTipo',
+           total + (total === 1 ? ' imóvel' : ' imóveis'), total);
+
+    // faixas ficam na ordem dos valores, nunca ordenadas por tamanho:
+    // são categorias ordenadas, e reordenar destruiria a progressão
+    var faixas = FAIXAS.map(function(f){
+      return { rot:f[0], n: ls.filter(function(l){
+        var v = precoNum(l.precoDestaque);
+        return v != null && v >= f[1] && (f[2] == null || v < f[2]);
+      }).length };
+    });
+    colunas(faixas, 'dashFaixa', 'subFaixa',
+            'pelo preço em destaque do imóvel', COR_FAIXA, total);
+
+    var nUf = unicos(ls.map(function(l){ return l.uf; })).length;
+    colunas(topN(agrupar(ls, function(l){ return l.uf; }), 10),
+            'dashUf', 'subUf',
+            nUf + (nUf === 1 ? ' estado' : ' estados'), COR_UF, total);
+  }
 
   // ------------------------------------------------------ render calendário
   function render(){
+    var alvo = document.getElementById('dias');
+
+    if (!lim) {
+      document.getElementById('mesAtual').textContent = 'Sem resultados';
+      document.getElementById('btnAnt').disabled = true;
+      document.getElementById('btnProx').disabled = true;
+      alvo.innerHTML = '';
+      return;
+    }
+
     var a = vista.a, m = vista.m;
     document.getElementById('mesAtual').textContent = MESES[m] + ' de ' + a;
 
@@ -287,50 +900,58 @@
     for (var d = 1; d <= totalDias; d++) {
       var iso = a + '-' + pad(m + 1) + '-' + pad(d);
       var evs = porDia[iso];
+      var feirao = ehFeirao(iso);
       var cls = 'dia';
       if (evs) cls += ' tem';
+      if (feirao) cls += ' feirao';
       if (iso === hojeISO) cls += ' hoje';
       if (iso === selecionado) cls += ' sel';
       if (iso < hojeISO) cls += ' passado';
 
       html += '<' + (evs ? 'button' : 'div') + ' class="' + cls + '"' +
               (evs ? ' data-dia="' + iso + '"' : '') + '>' +
+              (feirao ? '<span class="selo" title="Feirão: mais de ' +
+                        FEIRAO_MIN + ' lotes no dia">feirão</span>' : '') +
               '<span class="num">' + d + '</span>';
 
       if (evs) {
-        var horas = {};
-        evs.forEach(function(e){ if (e.hora) horas[e.hora] = 1; });
-        var listaH = Object.keys(horas).sort();
         html += '<span class="qtd"><b>' + evs.length + '</b>' +
-                (evs.length === 1 ? 'lote' : 'lotes') + '</span>' +
-                '<span class="horas">' +
-                listaH.slice(0,2).join(' · ') +
-                (listaH.length > 2 ? ' +' + (listaH.length - 2) : '') +
-                '</span>';
+                (evs.length === 1 ? 'lote' : 'lotes') + '</span>';
       }
       html += '</' + (evs ? 'button' : 'div') + '>';
     }
-    document.getElementById('dias').innerHTML = html;
+    alvo.innerHTML = html;
   }
-
-  function pad(n){ return (n < 10 ? '0' : '') + n; }
 
   // ------------------------------------------------------ painel do dia
   function abrirDia(iso){
     selecionado = iso;
     render();
 
+    var busca = document.getElementById('busca');
+
+    if (!iso) {
+      document.getElementById('diaTitulo').textContent = 'Nenhum resultado';
+      document.getElementById('diaSub').textContent =
+        'Nenhum imóvel corresponde aos filtros selecionados.';
+      busca.hidden = true;
+      document.getElementById('lista').innerHTML =
+        '<div class="vazio-msg"><strong>Nada encontrado</strong>' +
+        'Ajuste ou limpe os filtros para ver os lotes.</div>';
+      return;
+    }
+
     var evs = porDia[iso] || [];
     var dt = new Date(iso + 'T12:00:00');
     var diaSemana = ['domingo','segunda-feira','terça-feira','quarta-feira',
                      'quinta-feira','sexta-feira','sábado'][dt.getDay()];
 
-    document.getElementById('diaTitulo').textContent =
-      dt.getDate() + ' de ' + MESES[dt.getMonth()] + ' de ' + dt.getFullYear();
+    document.getElementById('diaTitulo').innerHTML =
+      dt.getDate() + ' de ' + MESES[dt.getMonth()] + ' de ' + dt.getFullYear() +
+      (ehFeirao(iso) ? ' <span class="tag feirao">feirão</span>' : '');
     document.getElementById('diaSub').textContent =
       diaSemana + ' · ' + evs.length + (evs.length === 1 ? ' lote' : ' lotes');
 
-    var busca = document.getElementById('busca');
     busca.hidden = evs.length < 6;
     busca.value = '';
     desenharLista(evs);
@@ -366,7 +987,6 @@
             : '<div class="sem-foto">sem foto</div>') +
           '<div class="lote-info">' +
             '<div class="lote-topo">' +
-              '<span class="hora">' + (e.hora || '--:--') + '</span>' +
               '<span class="tag ' + (unica ? 'unica' : 'praca') + '">' + e.rotulo + '</span>' +
               tagDesc +
             '</div>' +
@@ -381,15 +1001,105 @@
     alvo.scrollTop = 0;
   }
 
-  function esc(s){
-    return String(s == null ? '' : s)
-      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  // ---------------------------------------------------- montagem dos selects
+  function opcoes(sel, valores, rotulos){
+    var manter = sel.options[0].outerHTML;   // preserva o "Todos"
+    sel.innerHTML = manter + valores.map(function(v, i){
+      return '<option value="' + esc(v) + '">' +
+             esc(rotulos ? rotulos[i] : v) + '</option>';
+    }).join('');
+  }
+
+  function montarSelectsFixos(){
+    opcoes(document.getElementById('fTipo'),
+           unicos(TODOS.map(function(l){ return l.tipo; })));
+    opcoes(document.getElementById('fUf'),
+           unicos(TODOS.map(function(l){ return l.uf; })));
+    opcoes(document.getElementById('fLeilao'),
+           unicos(TODOS.map(function(l){ return l.modalidade; })));
+
+    var temVazio = TODOS.some(function(l){ return !l.situacao; });
+    var sits = unicos(TODOS.map(function(l){ return l.situacao; }));
+    var vals = sits.slice(), rots = sits.slice();
+    if (temVazio) { vals.push(SEM_SITUACAO); rots.push('Não informada'); }
+    opcoes(document.getElementById('fSituacao'), vals, rots);
+  }
+
+  /** a lista de cidades acompanha o estado escolhido */
+  function montarCidades(){
+    var sel = document.getElementById('fCidade');
+    var base = filtros.uf
+      ? TODOS.filter(function(l){ return l.uf === filtros.uf; })
+      : TODOS;
+    var cidades = unicos(base.map(function(l){ return l.cidade; }));
+
+    if (filtros.cidade && cidades.indexOf(filtros.cidade) === -1) {
+      filtros.cidade = '';          // a cidade não existe no estado escolhido
+    }
+    opcoes(sel, cidades);
+    sel.value = filtros.cidade;
+  }
+
+  // ------------------------------------------------------------- aplicar
+  function aplicar(){
+    recalcular();
+    renderKpis();
+    renderFeiroes();
+    renderDashboards();
+
+    var n = contarAtivos();
+    document.getElementById('btnLimpar').disabled = n === 0;
+    document.getElementById('filtrosInfo').innerHTML = n === 0
+      ? 'Nenhum filtro aplicado'
+      : '<b>' + lotesFiltrados.length + '</b> ' +
+        (lotesFiltrados.length === 1 ? 'imóvel' : 'imóveis') +
+        ' · ' + n + (n === 1 ? ' filtro' : ' filtros');
+
+    // marca visualmente os selects em uso
+    [['fTipo','tipo'],['fPreco','preco'],['fUf','uf'],['fCidade','cidade'],
+     ['fPraca','praca'],['fLeilao','leilao'],['fSituacao','situacao']]
+      .forEach(function(par){
+        document.getElementById(par[0]).classList.toggle('ativo', !!filtros[par[1]]);
+      });
+
+    if (!datas.length) {
+      vista = null;
+      abrirDia(null);
+      return;
+    }
+
+    // mantém o mês visível se ele ainda tiver dados; senão vai pro mais próximo
+    var alvoIso = (selecionado && porDia[selecionado])
+      ? selecionado
+      : (datas.find(function(d){ return d >= hojeISO; }) || datas[0]);
+
+    vista = mesDe(alvoIso);
+    abrirDia(alvoIso);
+  }
+
+  function limpar(){
+    for (var k in filtros) filtros[k] = '';
+    ['fTipo','fPreco','fUf','fCidade','fPraca','fLeilao','fSituacao']
+      .forEach(function(id){ document.getElementById(id).value = ''; });
+    montarCidades();
+    selecionado = null;
+    aplicar();
   }
 
   // ------------------------------------------------------------- eventos
   document.getElementById('dias').addEventListener('click', function(ev){
     var btn = ev.target.closest('[data-dia]');
     if (btn) abrirDia(btn.getAttribute('data-dia'));
+  });
+
+  // clicar num feirão em destaque salta para aquele dia no calendário
+  document.getElementById('feiroes').addEventListener('click', function(ev){
+    var card = ev.target.closest('[data-ir]');
+    if (!card) return;
+    var iso = card.getAttribute('data-ir');
+    vista = mesDe(iso);
+    abrirDia(iso);
+    document.querySelector('.grid').scrollIntoView({ behavior:'smooth', block:'start' });
   });
 
   document.getElementById('btnAnt').addEventListener('click', function(){
@@ -400,6 +1110,20 @@
     if (++vista.m > 11) { vista.m = 0; vista.a++; }
     render();
   });
+
+  var MAPA = { fTipo:'tipo', fPreco:'preco', fUf:'uf', fCidade:'cidade',
+               fPraca:'praca', fLeilao:'leilao', fSituacao:'situacao' };
+
+  Object.keys(MAPA).forEach(function(id){
+    document.getElementById(id).addEventListener('change', function(){
+      filtros[MAPA[id]] = this.value;
+      if (id === 'fUf') montarCidades();      // estado muda a lista de cidades
+      selecionado = null;
+      aplicar();
+    });
+  });
+
+  document.getElementById('btnLimpar').addEventListener('click', limpar);
 
   document.getElementById('busca').addEventListener('input', function(){
     var q = this.value.toLowerCase().trim();
@@ -413,10 +1137,28 @@
   });
 
   // ------------------------------------------------------------- início
-  render();
-  // abre o próximo dia com lotes a partir de hoje
-  var proximo = datas.find(function(d){ return d >= hojeISO; }) || datas[0];
-  abrirDia(proximo);
+  // o resumo reflete só o que está por vir, não o catálogo histórico
+  (function(){
+    var ds = [], n = 0;
+    TODOS.forEach(function(l){
+      var f = l.pracas.filter(pracaFutura);
+      if (!f.length) return;
+      n++;
+      f.forEach(function(p){ ds.push(p.data); });
+    });
+    ds.sort();
+    var el = document.getElementById('resumo');
+    el.innerHTML = ds.length
+      ? '<b>' + n + '</b> imóveis · <b>' + ds.length + '</b> praças a realizar · ' +
+        'de <b>' + fmtBr(ds[0]) + '</b> a <b>' + fmtBr(ds[ds.length-1]) + '</b>'
+      : 'Nenhuma praça agendada a partir de hoje.';
+  })();
+  document.getElementById('atualizado').textContent =
+    'atualizado em ' + new Date(dados.atualizadoEm).toLocaleString('pt-BR');
+
+  montarSelectsFixos();
+  montarCidades();
+  aplicar();
 })();
 </script>
 </body>
