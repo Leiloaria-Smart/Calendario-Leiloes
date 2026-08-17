@@ -24,8 +24,9 @@
     --sombra:none;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  /* a rolagem suave é feita em JS (função irPara), não por scroll-behavior:
+     assim dá para cair no salto instantâneo quando a animação não roda —
+     aba em segundo plano — em vez de a rolagem morrer no meio */
   body{
     font-family:Montserrat,-apple-system,"Segoe UI",Roboto,sans-serif;
     background:var(--fundo);color:var(--texto);
@@ -48,8 +49,13 @@
            text-decoration:none;cursor:pointer;white-space:nowrap;transition:.15s}
   .btn-cab:hover{border-color:var(--azul);color:var(--azul-escuro)}
   /* texto #4a3200 sobre o âmbar dá 6,47:1 — passa AA */
-  .btn-cab.primario{background:var(--amarelo);border-color:var(--amarelo);color:#4a3200}
+  .btn-cab.primario{background:var(--amarelo);border-color:var(--amarelo);color:#4a3200;
+                    padding:10px 18px;font-size:13px}
   .btn-cab.primario:hover{background:#e89f05;border-color:#e89f05;color:#4a3200}
+
+  /* atalho no meio da página, no vão entre os feirões e o panorama */
+  .ir-calendario{display:flex;justify-content:center;margin:0 0 34px}
+  .btn-largo{padding:12px 28px;font-size:13.5px;gap:9px}
 
   /* --------------------------------------------------------------- KPIs */
   /* faixa de números, não uma grade de cartões: os fios em cima e embaixo
@@ -305,18 +311,9 @@
   <header>
     <div>
       <h1>Calendário <span>Leiloaria Smart</span></h1>
-      <p class="sub" id="resumo">Carregando…</p>
     </div>
     <div class="cab-acoes">
-      <a class="btn-cab" href="#calendario">
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round"/>
-        </svg>
-        Calendário
-      </a>
-      <a class="btn-cab primario" href="https://leiloariasmart.com.br"
+      <a class="btn-cab" href="https://leiloariasmart.com.br"
          target="_blank" rel="noopener">
         Site oficial
         <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -325,6 +322,14 @@
           <path d="M9.5 2.5H13.5V6.5M13 3l-6 6" stroke="currentColor" stroke-width="1.6"
                 stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
+      </a>
+      <a class="btn-cab primario" href="#calendario">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round"/>
+        </svg>
+        Acesse o calendário
       </a>
     </div>
   </header>
@@ -340,6 +345,22 @@
     </div>
     <div class="feiroes" id="feiroes"></div>
   </section>
+
+  <!-- ------------------------------------- atalho no meio da rolagem -->
+  <div class="ir-calendario">
+    <a class="btn-cab primario btn-largo" href="#calendario">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round"/>
+      </svg>
+      Acesse o calendário
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
 
   <!-- ---------------------------------------------------------- dashboards -->
   <section class="secao">
@@ -497,10 +518,6 @@
       .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
   function pad(n){ return (n < 10 ? '0' : '') + n; }
-  function fmtBr(iso){
-    var p = iso.split('-');
-    return p[2] + '/' + p[1] + '/' + p[0];
-  }
   function mesDe(iso){ return {a:+iso.slice(0,4), m:+iso.slice(5,7)-1}; }
 
   /** "R$ 470.000,00" -> 470000 */
@@ -1092,6 +1109,47 @@
     if (btn) abrirDia(btn.getAttribute('data-dia'));
   });
 
+  // Os atalhos são âncoras de verdade (funcionam sem JS e dão link
+  // compartilhável), mas clicar numa âncora cujo hash JÁ está na URL não
+  // dispara navegação — o segundo clique ficaria morto. Então rolamos na mão.
+  /** Rola até um elemento animando em JS (ver nota no CSS sobre por que a
+   *  animação nativa não serve aqui). Honra prefers-reduced-motion. */
+  function irPara(alvo){
+    var ini  = window.scrollY;
+    var fim  = alvo.getBoundingClientRect().top + ini;
+    var dist = fim - ini;
+    if (Math.abs(dist) < 2) return;
+
+    // sem animação quando ela não faria sentido ou não rodaria: usuário que
+    // pediu menos movimento, ou aba em segundo plano (onde o navegador
+    // congela requestAnimationFrame e a rolagem ficaria pela metade)
+    if (document.hidden ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.scrollTop = fim;
+      return;
+    }
+
+    var dur = Math.min(650, Math.max(280, Math.abs(dist) * 0.55));
+    var t0 = null;
+    requestAnimationFrame(function passo(t){
+      if (t0 === null) t0 = t;
+      var p = Math.min(1, (t - t0) / dur);
+      var e = p < 0.5 ? 2*p*p : 1 - Math.pow(-2*p + 2, 2) / 2;   // easeInOutQuad
+      document.documentElement.scrollTop = ini + dist * e;
+      if (p < 1) requestAnimationFrame(passo);
+    });
+  }
+
+  // os atalhos continuam sendo âncoras de verdade (funcionam sem JS e dão
+  // link compartilhável); com JS, cancelamos o salto nativo e animamos —
+  // isso também conserta o 2º clique, que morria com o hash já na URL
+  document.querySelectorAll('a[href="#calendario"]').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      irPara(document.getElementById('calendario'));
+    });
+  });
+
   // clicar num feirão em destaque salta para aquele dia no calendário
   document.getElementById('feiroes').addEventListener('click', function(ev){
     var card = ev.target.closest('[data-ir]');
@@ -1099,7 +1157,7 @@
     var iso = card.getAttribute('data-ir');
     vista = mesDe(iso);
     abrirDia(iso);
-    document.querySelector('.grid').scrollIntoView({ behavior:'smooth', block:'start' });
+    irPara(document.getElementById('calendario'));
   });
 
   document.getElementById('btnAnt').addEventListener('click', function(){
@@ -1137,22 +1195,6 @@
   });
 
   // ------------------------------------------------------------- início
-  // o resumo reflete só o que está por vir, não o catálogo histórico
-  (function(){
-    var ds = [], n = 0;
-    TODOS.forEach(function(l){
-      var f = l.pracas.filter(pracaFutura);
-      if (!f.length) return;
-      n++;
-      f.forEach(function(p){ ds.push(p.data); });
-    });
-    ds.sort();
-    var el = document.getElementById('resumo');
-    el.innerHTML = ds.length
-      ? '<b>' + n + '</b> imóveis · <b>' + ds.length + '</b> praças a realizar · ' +
-        'de <b>' + fmtBr(ds[0]) + '</b> a <b>' + fmtBr(ds[ds.length-1]) + '</b>'
-      : 'Nenhuma praça agendada a partir de hoje.';
-  })();
   document.getElementById('atualizado').textContent =
     'atualizado em ' + new Date(dados.atualizadoEm).toLocaleString('pt-BR');
 
