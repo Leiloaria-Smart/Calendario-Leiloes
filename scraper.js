@@ -4,6 +4,10 @@
  * Uso:
  *   node scraper.js
  *   node scraper.js --ate 2026-09-30     (filtra praças até a data indicada)
+ *   node scraper.js --forcar             (grava mesmo com a conferência reclamando)
+ *
+ * Saída 0 = gravou. 1 = erro (rede, HTTP). 2 = recusou gravar: o resultado
+ * tem cara de parsing quebrado e os dados anteriores foram preservados.
  *
  * Sem dependências externas: usa fetch nativo do Node 18+ e parsing por regex
  * em cima do HTML server-rendered de https://leiloariasmart.com.br/busca
@@ -212,11 +216,96 @@ function parseCard(bloco) {
   };
 }
 
+// -------------------------------------------------------------- conferência
+
+/** Lê o lotes.json que já está no disco, para comparar. */
+function leAnterior() {
+  try {
+    return JSON.parse(fs.readFileSync(SAIDA, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Duas coisas mudam sozinhas a cada coleta, sem o acervo ter mudado: o
+ * carimbo de tempo e o contador de visitas de cada imóvel. Só o contador
+ * responde por quase todo o diff de um dia normal — e o calendário nem
+ * exibe esse número.
+ *
+ * Ignorando os dois, cada gravação (e cada commit que o Actions faz em
+ * cima dela) passa a significar mudança de verdade no acervo.
+ */
+function mudouDeVerdade(antes, depois) {
+  const semRuido = (d) =>
+    JSON.stringify({
+      ...d,
+      atualizadoEm: null,
+      lotes: d.lotes.map((l) => ({ ...l, visitas: 0 })),
+    });
+  return semRuido(antes) !== semRuido(depois);
+}
+
+/**
+ * Devolve a lista de motivos para NÃO gravar.
+ *
+ * O parsing depende de classes CSS do site. Se elas mudarem, o scraper não
+ * quebra com erro — ele volta vazio, calado. Rodando sozinho todo dia pelo
+ * GitHub Actions, isso publicaria um calendário em branco sem ninguém
+ * perceber. Então ele prefere parar e deixar no ar os dados bons de ontem.
+ *
+ * `comparar` fica falso quando se usa --ate, porque aí a queda no número de
+ * lotes é o efeito pedido, não sintoma de defeito.
+ */
+function confere(saida, html, qtdCards, comparar) {
+  const motivos = [];
+
+  if (html.length < 100 * 1024) {
+    motivos.push(
+      `a página veio com ${(html.length / 1024).toFixed(0)} KB; o normal passa ` +
+        'de 1 MB — provavelmente caiu numa página de erro ou de bloqueio'
+    );
+  }
+
+  if (qtdCards === 0) {
+    motivos.push(
+      'nenhum card encontrado no HTML — o marcador <div class="caixa-imoveis"> mudou'
+    );
+  }
+
+  if (saida.total === 0) {
+    motivos.push(
+      'nenhum lote com praça — os blocos info-imovel-3/4 (as datas) mudaram'
+    );
+  }
+
+  const semTitulo = saida.lotes.filter((l) => !l.titulo).length;
+  if (saida.total > 0 && semTitulo / saida.total > 0.2) {
+    motivos.push(
+      `${semTitulo} dos ${saida.total} lotes vieram sem título — info-imovel-2 mudou`
+    );
+  }
+
+  if (comparar) {
+    const antes = leAnterior();
+    // com menos de 20 lotes na base a proporção não diz nada
+    if (antes && antes.total >= 20 && saida.total < antes.total * 0.5) {
+      motivos.push(
+        `o total caiu de ${antes.total} para ${saida.total} lotes; sumir mais da ` +
+          'metade de um dia para o outro não acontece de verdade'
+      );
+    }
+  }
+
+  return motivos;
+}
+
 // --------------------------------------------------------------------- main
 
 async function main() {
   const argAte = process.argv.indexOf('--ate');
   const ate = argAte > -1 ? process.argv[argAte + 1] : null;
+  const forcar = process.argv.includes('--forcar');
 
   console.log(`Baixando ${FONTE} ...`);
   const resp = await fetch(FONTE, { headers: { 'User-Agent': UA } });
@@ -247,6 +336,30 @@ async function main() {
     ultimaData: todasDatas[todasDatas.length - 1] || null,
     lotes,
   };
+
+  const motivos = confere(saida, html, cards.length, !ate);
+  if (motivos.length && !forcar) {
+    console.error('\nNão gravei nada — os dados anteriores continuam no lugar.\n');
+    motivos.forEach((m) => console.error(`  - ${m}`));
+    console.error(
+      '\nO ponto a conferir é parseCard() no scraper.js: as classes do site' +
+        '\nprovavelmente mudaram de nome. Para gravar assim mesmo: --forcar'
+    );
+    process.exit(2);
+  }
+  if (motivos.length && forcar) {
+    console.error('\nA conferência reclamou, mas --forcar foi pedido:\n');
+    motivos.forEach((m) => console.error(`  - ${m}`));
+    console.error('');
+  }
+
+  const anterior = leAnterior();
+  if (anterior && !forcar && !mudouDeVerdade(anterior, saida)) {
+    console.log('\nO acervo está igual ao da última coleta — não reescrevi nada.');
+    console.log(`  ${saida.total} lotes | ${saida.totalPracas} datas de praça`);
+    console.log(`  dados de ${anterior.atualizadoEm}`);
+    return;
+  }
 
   fs.mkdirSync(path.dirname(SAIDA), { recursive: true });
   fs.writeFileSync(SAIDA, JSON.stringify(saida, null, 1), 'utf8');
