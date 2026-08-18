@@ -1,0 +1,12 @@
+# Tudo em LF, no repositório e no disco.
+#
+# O scraper roda em duas máquinas — Windows (à mão) e o runner Linux do
+# GitHub Actions (agendado) — e as duas reescrevem site/lotes.json inteiro.
+# Sem isto, a diferença de final de linha entre elas viraria um diff de
+# arquivo inteiro a cada execução, escondendo a mudança real dos dados.
+* text=auto eol=lf
+
+# Gerados pelo scraper: não contam como código nos gráficos do GitHub e
+# ficam recolhidos por padrão na revisão de diffs.
+site/lotes.json linguist-generated=true
+site/lotes.js   linguist-generated=true
