@@ -1,0 +1,199 @@
+name: Atualizar e publicar o calendário
+
+# Tudo acontece numa execução só, de propósito. Um push feito de dentro de um
+# workflow com o GITHUB_TOKEN não dispara outro workflow (proteção contra loop
+# infinito), então separar "coletar" e "publicar" em dois workflows faria o
+# scraper commitar e o site nunca sair do lugar. Por isso: dois jobs ligados
+# por `needs`, no mesmo run.
+
+on:
+  schedule:
+    # 09:13 UTC = 06:13 em Brasília (UTC-3 o ano todo, sem horário de verão).
+    # Não é no minuto 0 porque a virada da hora é o pico de carga do Actions e
+    # execuções agendadas atrasam — ou são descartadas — justamente aí.
+    - cron: '13 9 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'scraper.js'
+      - '.github/workflows/calendario.yml'
+  workflow_dispatch:
+
+# Uma publicação por vez. O grupo tem nome fixo (e não a chave dinâmica de
+# sempre) para que o run agendado e um run manual nunca disputem a publicação.
+# Sem cancelar o que está em andamento: isto é deploy de produção, e abortar no
+# meio deixa a implantação travada.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  dados:
+    name: Coletar os lotes
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    outputs:
+      relato: ${{ steps.coleta.outputs.relato }}
+    steps:
+      # `ref` explícito, e não o checkout padrão: sem ele o job trabalha no
+      # commit que disparou o run, que pode estar atrás da ponta de main — e aí
+      # o push é rejeitado como non-fast-forward. Acontece de verdade ao clicar
+      # "Re-run all jobs" depois de um commit de dados, justamente a primeira
+      # coisa que se faz para destravar a automação.
+      # `fetch-depth: 0` porque o passo de commit faz rebase, e rebase não
+      # funciona em clone raso.
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      # Sem setup-node de propósito: o runner já traz Node 22 e o scraper não
+      # tem dependência nenhuma — só fetch nativo, fs e path.
+
+      - name: Rodar o scraper
+        id: coleta
+        run: |
+          codigo=0
+          node scraper.js > saida.txt 2>&1 || codigo=$?
+          cat saida.txt
+
+          {
+            echo 'relato<<FIM_DO_RELATO_7b3f'
+            tail -n 25 saida.txt
+            echo 'FIM_DO_RELATO_7b3f'
+          } >> "$GITHUB_OUTPUT"
+
+          rm -f saida.txt
+          exit $codigo
+
+      - name: Commitar o que mudou
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add site/lotes.json site/lotes.js
+
+          # O scraper já evita reescrever quando nada mudou de verdade, então
+          # aqui normalmente não há nada staged. Testar antes de commitar é o
+          # que impede `git commit` de sair com código 1 e derrubar o job num
+          # dia tranquilo. Nunca use `|| true` aqui: isso engoliria erro real.
+          if git diff --staged --quiet; then
+            echo 'O acervo não mudou — nada a commitar.'
+            echo 'Acervo sem mudanças; republicando o que já estava.' >> "$GITHUB_STEP_SUMMARY"
+          else
+            resumo=$(node -p "const d=require('./site/lotes.json'); d.total+' imóveis, '+d.totalPracas+' praças, até '+d.ultimaData")
+            git commit -m "Atualiza os dados ($resumo)"
+            # main pode ter andado entre o checkout e agora. Rebase antes de
+            # empurrar evita a rejeição por non-fast-forward, que chegaria ao
+            # dono como "o scraper quebrou" sem nada ter quebrado.
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push
+            echo "Dados atualizados: $resumo" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  publicar:
+    name: Publicar no Pages
+    needs: dados
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      # Mesmo motivo do job anterior: aqui o `ref` traz o commit que o `dados`
+      # acabou de empurrar. Sem isto, publicaria os dados de ontem todo dia.
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/configure-pages@v6
+
+      # `path: site` e não `.`: o conteúdo da pasta vira a raiz do domínio, ou
+      # seja index.html responde em / — com `.` responderia em /site/ e a raiz
+      # daria 404.
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+      - id: deploy
+        uses: actions/deploy-pages@v5
+
+  avisar:
+    name: Avisar que quebrou
+    needs: [dados, publicar]
+    if: failure()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    steps:
+      - name: Abrir issue, ou comentar na que já existe
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          COLETA: ${{ needs.dados.result }}
+          # Via env, nunca interpolado direto no shell: este texto nasce do
+          # HTML de um site externo. Expandido entre aspas, o bash não o
+          # reinterpreta como comando.
+          RELATO: ${{ needs.dados.outputs.relato }}
+        run: |
+          # Quem falhou muda o diagnóstico. Culpar o parsing quando o que
+          # quebrou foi o deploy manda o dono procurar defeito onde não há.
+          {
+            echo 'A atualização automática do calendário falhou.'
+            echo
+            echo "**Execução:** $RUN_URL"
+            echo
+
+            if [ "$COLETA" = 'failure' ]; then
+              echo 'O que o scraper disse:'
+              echo
+              echo '```'
+              echo "$RELATO"
+              echo '```'
+              echo
+              echo 'O calendário **continua no ar** com os últimos dados bons — o'
+              echo 'scraper se recusa a publicar resultado quebrado.'
+              echo
+              echo 'Onde olhar: o parsing depende das classes CSS do site'
+              echo '(`caixa-imoveis`, `info-imovel-1` a `info-imovel-5`). Se elas'
+              echo 'mudaram de nome, o ponto a corrigir é `parseCard()` no `scraper.js`.'
+              echo
+              echo 'Se os dados estiverem certos e for só a conferência sendo'
+              echo 'rigorosa demais, `node scraper.js --forcar` grava assim mesmo.'
+            else
+              echo 'A coleta dos dados funcionou. Quem falhou foi a publicação no'
+              echo 'GitHub Pages, ou o commit dos dados.'
+              echo
+              echo 'O calendário **continua no ar** com a última versão publicada;'
+              echo 'ele só não recebeu a atualização de hoje.'
+              echo
+              echo 'Onde olhar: o log da execução, no job `publicar`. Costuma ser'
+              echo 'falha passageira do deploy — reexecutar o workflow resolve.'
+            fi
+          } > corpo.md
+
+          # `|| true`: se o gh falhar aqui, o certo é tentar avisar assim mesmo.
+          # Silenciar o alarme por causa de uma falha do próprio alarme é o pior
+          # desfecho possível.
+          abertas=$(gh issue list --repo "$REPO" --label scraper --state open --json number --jq '.[].number' || true)
+
+          if [ -n "$abertas" ]; then
+            # Já existe issue aberta: comenta nela em vez de abrir outra. O
+            # comentário também gera e-mail, então o dono fica sabendo da falha
+            # nova sem receber uma issue por dia enquanto a antiga não é fechada.
+            gh issue comment "$(echo "$abertas" | head -n 1)" --repo "$REPO" --body-file corpo.md
+          elif [ "$COLETA" = 'failure' ]; then
+            gh issue create --repo "$REPO" --label scraper \
+              --title 'A coleta dos dados do calendário falhou' --body-file corpo.md
+          else
+            gh issue create --repo "$REPO" --label scraper \
+              --title 'A publicação do calendário falhou' --body-file corpo.md
+          fi
