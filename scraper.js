@@ -19,6 +19,7 @@ const path = require('path');
 const BASE = 'https://leiloariasmart.com.br';
 const FONTE = `${BASE}/busca`;
 const SAIDA = path.join(__dirname, 'site', 'lotes.json');
+const SAIDA_JS = SAIDA.replace(/\.json$/, '.js');
 
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
@@ -218,10 +219,18 @@ function parseCard(bloco) {
 
 // -------------------------------------------------------------- conferência
 
-/** Lê o lotes.json que já está no disco, para comparar. */
+/**
+ * Lê o lotes.json que já está no disco, para comparar.
+ *
+ * Devolve null também quando o arquivo é JSON válido mas não tem a cara
+ * esperada — um arquivo pela metade não pode virar base de comparação nem
+ * derrubar o scraper com TypeError lá na frente.
+ */
 function leAnterior() {
   try {
-    return JSON.parse(fs.readFileSync(SAIDA, 'utf8'));
+    const d = JSON.parse(fs.readFileSync(SAIDA, 'utf8'));
+    if (!d || !Array.isArray(d.lotes) || typeof d.total !== 'number') return null;
+    return d;
   } catch {
     return null;
   }
@@ -289,11 +298,29 @@ function confere(saida, html, qtdCards, comparar) {
   if (comparar) {
     const antes = leAnterior();
     // com menos de 20 lotes na base a proporção não diz nada
-    if (antes && antes.total >= 20 && saida.total < antes.total * 0.5) {
+    if (antes && antes.total >= 20 && saida.total < antes.total * 0.25) {
       motivos.push(
-        `o total caiu de ${antes.total} para ${saida.total} lotes; sumir mais da ` +
-          'metade de um dia para o outro não acontece de verdade'
+        `o total caiu de ${antes.total} para ${saida.total} lotes; sumir três ` +
+          'quartos do acervo de um dia para o outro não acontece de verdade'
       );
+    }
+
+    // Praças por lote. Os limites acima olham só a contagem de lotes, e há
+    // uma quebra que passa por baixo de todos eles: se mudar o nome do bloco
+    // da 2ª praça, vêm os mesmos 187 lotes, com título, numa página de tamanho
+    // normal — só que cada um com metade das datas. A proporção cai de 1,4
+    // para 1,0 e denuncia. Ela não se move sozinha: é característica do
+    // acervo, não do dia.
+    if (antes && antes.total >= 20 && saida.total > 0) {
+      const razaoAntes = antes.totalPracas / antes.total;
+      const razaoAgora = saida.totalPracas / saida.total;
+      if (razaoAntes >= 1.1 && razaoAgora < razaoAntes * 0.75) {
+        motivos.push(
+          `as praças por lote caíram de ${razaoAntes.toFixed(2)} para ` +
+            `${razaoAgora.toFixed(2)} — um dos blocos de data (info-imovel-3/4/5) ` +
+            'deve ter mudado, e os lotes estão vindo com datas faltando'
+        );
+      }
     }
   }
 
@@ -353,7 +380,9 @@ async function main() {
     console.error('');
   }
 
-  const anterior = leAnterior();
+  // O lotes.js precisa existir para pular a gravação: é ele, e não o .json,
+  // que o calendário carrega. Faltando, não há o que preservar — regrava.
+  const anterior = fs.existsSync(SAIDA_JS) ? leAnterior() : null;
   if (anterior && !forcar && !mudouDeVerdade(anterior, saida)) {
     console.log('\nO acervo está igual ao da última coleta — não reescrevi nada.');
     console.log(`  ${saida.total} lotes | ${saida.totalPracas} datas de praça`);
@@ -366,13 +395,13 @@ async function main() {
 
   // versão .js para o calendário abrir direto do disco (file:// bloqueia fetch)
   fs.writeFileSync(
-    SAIDA.replace(/\.json$/, '.js'),
+    SAIDA_JS,
     `window.DADOS_LEILAO = ${JSON.stringify(saida)};\n`,
     'utf8'
   );
 
   console.log(`\nOK -> ${SAIDA}`);
-  console.log(`OK -> ${SAIDA.replace(/\.json$/, '.js')}`);
+  console.log(`OK -> ${SAIDA_JS}`);
   console.log(`  ${saida.total} lotes | ${saida.totalPracas} datas de praça`);
   console.log(`  período: ${saida.primeiraData} a ${saida.ultimaData}`);
 
