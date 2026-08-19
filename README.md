@@ -195,9 +195,10 @@ conferência reclamou.
 - **"Hoje" é o dia em Brasília**, não em UTC nem no fuso de quem abre a página.
   O calendário se vira sozinho: como a data é calculada no navegador a cada
   visita, ele avança de dia mesmo que passe uma semana sem commit novo.
-- **Janela corrida de 60 dias.** O calendário cobre de hoje até 60 dias à
-  frente e anda um dia por dia: em 19/08 vai até 18/10; em 20/08, o dia 19/08
-  sai e o fim pula para 19/10. Praça fora da janela sai de tudo — grade,
+- **Janela corrida de 60 dias.** O calendário cobre 60 dias contados a partir
+  de hoje — hoje é o dia 1 — e anda um dia por dia: em 19/08 vai até 17/10;
+  em 20/08, o dia 19/08 sai e o fim pula para 18/10. Praça fora da janela sai
+  de tudo — grade,
   feirões, KPIs e gráficos. Dia depois do limite aparece esmaecido, igual aos
   dias passados, para não se confundir com dia sem leilão.
   O tamanho da janela é a constante `JANELA_DIAS` no `index.html`.

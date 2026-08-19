@@ -555,8 +555,8 @@
   // as datas dos dados são comparadas.
   var hojeISO = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Sao_Paulo' });
 
-  // Janela corrida: o calendário cobre de hoje até 60 dias à frente, e anda
-  // um dia por dia — hoje sai por baixo, um dia novo entra por cima.
+  // Janela corrida: o calendário cobre 60 dias contados a partir de hoje, e
+  // anda um dia por dia — hoje sai por baixo, um dia novo entra por cima.
   //
   // Fica aqui, e não no scraper, por um motivo concreto: o scraper não
   // reescreve os arquivos quando o acervo não muda, então uma janela
@@ -569,7 +569,9 @@
   var limiteISO = (function(){
     var p = hojeISO.split('-');
     var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
-    d.setUTCDate(d.getUTCDate() + JANELA_DIAS);
+    // -1 porque hoje é o dia 1 da contagem: 60 dias a partir de 19/08 é
+    // 19/08 a 17/10, não a 18/10 (isso seriam 61 dias na tela).
+    d.setUTCDate(d.getUTCDate() + JANELA_DIAS - 1);
     return d.toISOString().slice(0, 10);
   })();
 
