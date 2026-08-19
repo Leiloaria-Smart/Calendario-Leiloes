@@ -1,6 +1,6 @@
 {
  "fonte": "https://leiloariasmart.com.br/busca",
- "atualizadoEm": "2026-08-19T11:58:54.404Z",
+ "atualizadoEm": "2026-08-19T12:08:16.306Z",
  "total": 187,
  "totalPracas": 261,
  "primeiraData": "2026-08-04",
@@ -19,8 +19,8 @@
    "situacao": null,
    "desconto": "21%",
    "descontoTexto": "abaixo na 2ª praça",
-   "precoDestaque": "R$ 1,00",
-   "visitas": 1158,
+   "precoDestaque": "R$ 122.088,48",
+   "visitas": 1159,
    "pracas": [
     {
      "ordem": 1,
@@ -56,7 +56,7 @@
    "desconto": "21%",
    "descontoTexto": "abaixo da avaliação",
    "precoDestaque": "R$ 300.000,00",
-   "visitas": 3640,
+   "visitas": 3641,
    "pracas": [
     {
      "ordem": 1,
@@ -83,7 +83,7 @@
    "desconto": "76%",
    "descontoTexto": "abaixo da avaliação",
    "precoDestaque": "R$ 140.000,00",
-   "visitas": 3409,
+   "visitas": 3410,
    "pracas": [
     {
      "ordem": 1,
@@ -110,7 +110,7 @@
    "desconto": "-8%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 107.483,62",
-   "visitas": 624,
+   "visitas": 625,
    "pracas": [
     {
      "ordem": 1,
@@ -146,7 +146,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.900.000,00",
-   "visitas": 1083,
+   "visitas": 1084,
    "pracas": [
     {
      "ordem": 1,
@@ -173,7 +173,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.560.598,87",
-   "visitas": 1252,
+   "visitas": 1255,
    "pracas": [
     {
      "ordem": 1,
@@ -200,7 +200,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.018.606,54",
-   "visitas": 2023,
+   "visitas": 2024,
    "pracas": [
     {
      "ordem": 1,
@@ -227,7 +227,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.000.000,00",
-   "visitas": 1791,
+   "visitas": 1792,
    "pracas": [
     {
      "ordem": 1,
@@ -254,7 +254,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 647.528,85",
-   "visitas": 1976,
+   "visitas": 1977,
    "pracas": [
     {
      "ordem": 1,
@@ -281,7 +281,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 524.100,89",
-   "visitas": 1965,
+   "visitas": 1966,
    "pracas": [
     {
      "ordem": 1,
@@ -308,7 +308,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 397.221,01",
-   "visitas": 2358,
+   "visitas": 2361,
    "pracas": [
     {
      "ordem": 1,
@@ -335,7 +335,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 350.000,00",
-   "visitas": 2402,
+   "visitas": 2404,
    "pracas": [
     {
      "ordem": 1,
@@ -362,7 +362,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 321.150,15",
-   "visitas": 1259,
+   "visitas": 1260,
    "pracas": [
     {
      "ordem": 1,
@@ -389,7 +389,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 170.000,00",
-   "visitas": 1120,
+   "visitas": 1121,
    "pracas": [
     {
      "ordem": 1,
@@ -416,7 +416,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 150.000,00",
-   "visitas": 1066,
+   "visitas": 1067,
    "pracas": [
     {
      "ordem": 1,
@@ -443,7 +443,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 140.421,69",
-   "visitas": 1061,
+   "visitas": 1062,
    "pracas": [
     {
      "ordem": 1,
@@ -470,7 +470,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 130.000,00",
-   "visitas": 1969,
+   "visitas": 1970,
    "pracas": [
     {
      "ordem": 1,
@@ -497,7 +497,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 125.000,00",
-   "visitas": 1644,
+   "visitas": 1645,
    "pracas": [
     {
      "ordem": 1,
@@ -524,7 +524,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 120.000,00",
-   "visitas": 1644,
+   "visitas": 1645,
    "pracas": [
     {
      "ordem": 1,
@@ -551,7 +551,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 115.000,00",
-   "visitas": 1104,
+   "visitas": 1105,
    "pracas": [
     {
      "ordem": 1,
@@ -578,7 +578,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 100.000,00",
-   "visitas": 1378,
+   "visitas": 1379,
    "pracas": [
     {
      "ordem": 1,
@@ -605,7 +605,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 240.000,00",
-   "visitas": 3210,
+   "visitas": 3211,
    "pracas": [
     {
      "ordem": 1,
@@ -632,7 +632,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 870.000,00",
-   "visitas": 1054,
+   "visitas": 1055,
    "pracas": [
     {
      "ordem": 1,
@@ -668,7 +668,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 564.000,00",
-   "visitas": 2384,
+   "visitas": 2385,
    "pracas": [
     {
      "ordem": 1,
@@ -704,7 +704,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 164.500,00",
-   "visitas": 1564,
+   "visitas": 1565,
    "pracas": [
     {
      "ordem": 1,
@@ -740,7 +740,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 322.800,00",
-   "visitas": 2508,
+   "visitas": 2509,
    "pracas": [
     {
      "ordem": 1,
@@ -776,7 +776,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 1.013.400,00",
-   "visitas": 1368,
+   "visitas": 1369,
    "pracas": [
     {
      "ordem": 1,
@@ -812,7 +812,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 329.010,31",
-   "visitas": 1430,
+   "visitas": 1431,
    "pracas": [
     {
      "ordem": 1,
@@ -848,7 +848,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 433.800,00",
-   "visitas": 1682,
+   "visitas": 1683,
    "pracas": [
     {
      "ordem": 1,
@@ -884,7 +884,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 1.263.600,00",
-   "visitas": 1418,
+   "visitas": 1419,
    "pracas": [
     {
      "ordem": 1,
@@ -920,7 +920,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 960.000,00",
-   "visitas": 1155,
+   "visitas": 1156,
    "pracas": [
     {
      "ordem": 1,
@@ -956,7 +956,7 @@
    "desconto": "17%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 15.000.000,00",
-   "visitas": 1270,
+   "visitas": 1271,
    "pracas": [
     {
      "ordem": 1,
@@ -992,7 +992,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 480.000,00",
-   "visitas": 1075,
+   "visitas": 1076,
    "pracas": [
     {
      "ordem": 1,
@@ -1028,7 +1028,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 333.992,05",
-   "visitas": 1463,
+   "visitas": 1464,
    "pracas": [
     {
      "ordem": 1,
@@ -1064,7 +1064,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 150.000,00",
-   "visitas": 1138,
+   "visitas": 1139,
    "pracas": [
     {
      "ordem": 1,
@@ -1100,7 +1100,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 930.000,00",
-   "visitas": 1123,
+   "visitas": 1124,
    "pracas": [
     {
      "ordem": 1,
@@ -1136,7 +1136,7 @@
    "desconto": "42%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 380.000,00",
-   "visitas": 1091,
+   "visitas": 1092,
    "pracas": [
     {
      "ordem": 1,
@@ -1172,7 +1172,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 2.910.000,00",
-   "visitas": 1141,
+   "visitas": 1142,
    "pracas": [
     {
      "ordem": 1,
@@ -1208,7 +1208,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 659.400,00",
-   "visitas": 1149,
+   "visitas": 1150,
    "pracas": [
     {
      "ordem": 1,
@@ -1244,7 +1244,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 416.400,00",
-   "visitas": 1124,
+   "visitas": 1125,
    "pracas": [
     {
      "ordem": 1,
@@ -1280,7 +1280,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 2.670.000,00",
-   "visitas": 1221,
+   "visitas": 1222,
    "pracas": [
     {
      "ordem": 1,
@@ -1316,7 +1316,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 415.200,00",
-   "visitas": 1052,
+   "visitas": 1053,
    "pracas": [
     {
      "ordem": 1,
@@ -1352,7 +1352,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 219.600,00",
-   "visitas": 1061,
+   "visitas": 1062,
    "pracas": [
     {
      "ordem": 1,
@@ -1388,7 +1388,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 343.200,00",
-   "visitas": 1231,
+   "visitas": 1233,
    "pracas": [
     {
      "ordem": 1,
@@ -1424,7 +1424,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 793.200,00",
-   "visitas": 1075,
+   "visitas": 1076,
    "pracas": [
     {
      "ordem": 1,
@@ -1460,7 +1460,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 373.519,29",
-   "visitas": 1494,
+   "visitas": 1495,
    "pracas": [
     {
      "ordem": 1,
@@ -1496,7 +1496,7 @@
    "desconto": "48%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 450.000,00",
-   "visitas": 1039,
+   "visitas": 1040,
    "pracas": [
     {
      "ordem": 1,
@@ -1532,7 +1532,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 430.000,00",
-   "visitas": 937,
+   "visitas": 938,
    "pracas": [
     {
      "ordem": 1,
@@ -1568,7 +1568,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 320.000,00",
-   "visitas": 939,
+   "visitas": 940,
    "pracas": [
     {
      "ordem": 1,
@@ -1604,7 +1604,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 455.000,00",
-   "visitas": 918,
+   "visitas": 919,
    "pracas": [
     {
      "ordem": 1,
@@ -1640,7 +1640,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 400.000,00",
-   "visitas": 942,
+   "visitas": 943,
    "pracas": [
     {
      "ordem": 1,
@@ -1676,7 +1676,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 325.000,00",
-   "visitas": 930,
+   "visitas": 931,
    "pracas": [
     {
      "ordem": 1,
@@ -1712,7 +1712,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 470.000,00",
-   "visitas": 1260,
+   "visitas": 1261,
    "pracas": [
     {
      "ordem": 1,
@@ -1748,7 +1748,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 470.000,00",
-   "visitas": 1141,
+   "visitas": 1142,
    "pracas": [
     {
      "ordem": 1,
@@ -1784,7 +1784,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 768.000,00",
-   "visitas": 1082,
+   "visitas": 1083,
    "pracas": [
     {
      "ordem": 1,
@@ -1820,7 +1820,7 @@
    "desconto": "53%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 280.000,00",
-   "visitas": 1182,
+   "visitas": 1183,
    "pracas": [
     {
      "ordem": 1,
@@ -1856,7 +1856,7 @@
    "desconto": "43%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 170.000,00",
-   "visitas": 1033,
+   "visitas": 1034,
    "pracas": [
     {
      "ordem": 1,
@@ -1892,7 +1892,7 @@
    "desconto": "53%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 350.000,00",
-   "visitas": 986,
+   "visitas": 987,
    "pracas": [
     {
      "ordem": 1,
@@ -1928,7 +1928,7 @@
    "desconto": "49%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 475.000,00",
-   "visitas": 1133,
+   "visitas": 1134,
    "pracas": [
     {
      "ordem": 1,
@@ -1964,7 +1964,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 274.817,01",
-   "visitas": 1160,
+   "visitas": 1161,
    "pracas": [
     {
      "ordem": 1,
@@ -2000,7 +2000,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 1.385.677,39",
-   "visitas": 1097,
+   "visitas": 1098,
    "pracas": [
     {
      "ordem": 1,
@@ -2036,7 +2036,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 1.440.000,00",
-   "visitas": 1254,
+   "visitas": 1255,
    "pracas": [
     {
      "ordem": 1,
@@ -2072,7 +2072,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 412.800,00",
-   "visitas": 1020,
+   "visitas": 1021,
    "pracas": [
     {
      "ordem": 1,
@@ -2108,7 +2108,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 384.000,00",
-   "visitas": 1349,
+   "visitas": 1350,
    "pracas": [
     {
      "ordem": 1,
@@ -2144,7 +2144,7 @@
    "desconto": "60%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 196.830,00",
-   "visitas": 1074,
+   "visitas": 1075,
    "pracas": [
     {
      "ordem": 1,
@@ -2180,7 +2180,7 @@
    "desconto": "53%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 280.000,00",
-   "visitas": 1039,
+   "visitas": 1040,
    "pracas": [
     {
      "ordem": 1,
@@ -2216,7 +2216,7 @@
    "desconto": "7%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 140.000,00",
-   "visitas": 995,
+   "visitas": 996,
    "pracas": [
     {
      "ordem": 1,
@@ -2252,7 +2252,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 206.277,52",
-   "visitas": 1084,
+   "visitas": 1085,
    "pracas": [
     {
      "ordem": 1,
@@ -2288,7 +2288,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 206.277,52",
-   "visitas": 1053,
+   "visitas": 1055,
    "pracas": [
     {
      "ordem": 1,
@@ -2324,7 +2324,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 3.300.000,00",
-   "visitas": 1083,
+   "visitas": 1084,
    "pracas": [
     {
      "ordem": 1,
@@ -2360,7 +2360,7 @@
    "desconto": "56%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 150.000,00",
-   "visitas": 987,
+   "visitas": 988,
    "pracas": [
     {
      "ordem": 1,
@@ -2396,7 +2396,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 1.876.800,00",
-   "visitas": 1001,
+   "visitas": 1002,
    "pracas": [
     {
      "ordem": 1,
@@ -2432,7 +2432,7 @@
    "desconto": "47%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 895.000,00",
-   "visitas": 1078,
+   "visitas": 1079,
    "pracas": [
     {
      "ordem": 1,
@@ -2468,7 +2468,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 120.000,00",
-   "visitas": 1000,
+   "visitas": 1001,
    "pracas": [
     {
      "ordem": 1,
@@ -2504,7 +2504,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 180.000,00",
-   "visitas": 1168,
+   "visitas": 1169,
    "pracas": [
     {
      "ordem": 1,
@@ -2540,7 +2540,7 @@
    "desconto": "67%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 20.000,00",
-   "visitas": 948,
+   "visitas": 949,
    "pracas": [
     {
      "ordem": 1,
@@ -2576,7 +2576,7 @@
    "desconto": "67%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 20.000,00",
-   "visitas": 913,
+   "visitas": 914,
    "pracas": [
     {
      "ordem": 1,
@@ -2612,7 +2612,7 @@
    "desconto": "67%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 20.000,00",
-   "visitas": 898,
+   "visitas": 899,
    "pracas": [
     {
      "ordem": 1,
@@ -2648,7 +2648,7 @@
    "desconto": "67%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 20.000,00",
-   "visitas": 900,
+   "visitas": 901,
    "pracas": [
     {
      "ordem": 1,
@@ -2684,7 +2684,7 @@
    "desconto": "67%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 20.000,00",
-   "visitas": 886,
+   "visitas": 887,
    "pracas": [
     {
      "ordem": 1,
@@ -2720,7 +2720,7 @@
    "desconto": "67%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 20.000,00",
-   "visitas": 915,
+   "visitas": 916,
    "pracas": [
     {
      "ordem": 1,
@@ -2756,7 +2756,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 209.400,00",
-   "visitas": 1300,
+   "visitas": 1301,
    "pracas": [
     {
      "ordem": 1,
@@ -2792,7 +2792,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 207.000,00",
-   "visitas": 414,
+   "visitas": 416,
    "pracas": [
     {
      "ordem": 1,
@@ -2819,7 +2819,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 337.500,00",
-   "visitas": 251,
+   "visitas": 253,
    "pracas": [
     {
      "ordem": 1,
@@ -2846,7 +2846,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 872.671,70",
-   "visitas": 277,
+   "visitas": 280,
    "pracas": [
     {
      "ordem": 1,
@@ -2873,7 +2873,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 286.200,00",
-   "visitas": 257,
+   "visitas": 258,
    "pracas": [
     {
      "ordem": 1,
@@ -2900,7 +2900,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 135.000,00",
-   "visitas": 290,
+   "visitas": 291,
    "pracas": [
     {
      "ordem": 1,
@@ -2927,7 +2927,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 249.425,93",
-   "visitas": 1186,
+   "visitas": 1187,
    "pracas": [
     {
      "ordem": 1,
@@ -2954,7 +2954,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 832.169,80",
-   "visitas": 333,
+   "visitas": 334,
    "pracas": [
     {
      "ordem": 1,
@@ -2981,7 +2981,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 381.500,00",
-   "visitas": 475,
+   "visitas": 476,
    "pracas": [
     {
      "ordem": 1,
@@ -3008,7 +3008,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 490.500,00",
-   "visitas": 416,
+   "visitas": 418,
    "pracas": [
     {
      "ordem": 1,
@@ -3035,7 +3035,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 68.000,00",
-   "visitas": 342,
+   "visitas": 344,
    "pracas": [
     {
      "ordem": 1,
@@ -3062,7 +3062,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 560.000,00",
-   "visitas": 330,
+   "visitas": 331,
    "pracas": [
     {
      "ordem": 1,
@@ -3089,7 +3089,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 808.500,00",
-   "visitas": 307,
+   "visitas": 308,
    "pracas": [
     {
      "ordem": 1,
@@ -3116,7 +3116,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 282.000,00",
-   "visitas": 430,
+   "visitas": 431,
    "pracas": [
     {
      "ordem": 1,
@@ -3143,7 +3143,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 353.500,00",
-   "visitas": 309,
+   "visitas": 310,
    "pracas": [
     {
      "ordem": 1,
@@ -3170,7 +3170,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 150.000,00",
-   "visitas": 377,
+   "visitas": 378,
    "pracas": [
     {
      "ordem": 1,
@@ -3197,7 +3197,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 122.000,00",
-   "visitas": 319,
+   "visitas": 320,
    "pracas": [
     {
      "ordem": 1,
@@ -3224,7 +3224,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 836.500,00",
-   "visitas": 285,
+   "visitas": 286,
    "pracas": [
     {
      "ordem": 1,
@@ -3251,7 +3251,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 298.558,35",
-   "visitas": 427,
+   "visitas": 428,
    "pracas": [
     {
      "ordem": 1,
@@ -3278,7 +3278,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 599.000,00",
-   "visitas": 315,
+   "visitas": 316,
    "pracas": [
     {
      "ordem": 1,
@@ -3305,7 +3305,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 207.000,00",
-   "visitas": 426,
+   "visitas": 428,
    "pracas": [
     {
      "ordem": 1,
@@ -3332,7 +3332,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 250.000,00",
-   "visitas": 320,
+   "visitas": 322,
    "pracas": [
     {
      "ordem": 1,
@@ -3359,7 +3359,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 79.300,00",
-   "visitas": 498,
+   "visitas": 499,
    "pracas": [
     {
      "ordem": 1,
@@ -3386,7 +3386,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.845.000,00",
-   "visitas": 484,
+   "visitas": 485,
    "pracas": [
     {
      "ordem": 1,
@@ -3413,7 +3413,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 78.500,00",
-   "visitas": 465,
+   "visitas": 466,
    "pracas": [
     {
      "ordem": 1,
@@ -3440,7 +3440,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.206.000,00",
-   "visitas": 567,
+   "visitas": 568,
    "pracas": [
     {
      "ordem": 1,
@@ -3467,7 +3467,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 199.000,00",
-   "visitas": 365,
+   "visitas": 366,
    "pracas": [
     {
      "ordem": 1,
@@ -3494,7 +3494,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 2.096.000,00",
-   "visitas": 499,
+   "visitas": 500,
    "pracas": [
     {
      "ordem": 1,
@@ -3521,7 +3521,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 625.500,00",
-   "visitas": 344,
+   "visitas": 345,
    "pracas": [
     {
      "ordem": 1,
@@ -3548,7 +3548,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 347.000,00",
-   "visitas": 474,
+   "visitas": 475,
    "pracas": [
     {
      "ordem": 1,
@@ -3575,7 +3575,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 210.000,00",
-   "visitas": 302,
+   "visitas": 304,
    "pracas": [
     {
      "ordem": 1,
@@ -3602,7 +3602,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 700.000,00",
-   "visitas": 484,
+   "visitas": 485,
    "pracas": [
     {
      "ordem": 1,
@@ -3629,7 +3629,7 @@
    "desconto": "18%",
    "descontoTexto": "abaixo da avaliação",
    "precoDestaque": "R$ 350.000,00",
-   "visitas": 1587,
+   "visitas": 1588,
    "pracas": [
     {
      "ordem": 1,
@@ -3656,7 +3656,7 @@
    "desconto": "18%",
    "descontoTexto": "abaixo da avaliação",
    "precoDestaque": "R$ 350.000,00",
-   "visitas": 1612,
+   "visitas": 1613,
    "pracas": [
     {
      "ordem": 1,
@@ -3683,7 +3683,7 @@
    "desconto": "21%",
    "descontoTexto": "abaixo da avaliação",
    "precoDestaque": "R$ 350.000,00",
-   "visitas": 1664,
+   "visitas": 1665,
    "pracas": [
     {
      "ordem": 1,
@@ -3710,7 +3710,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 94.000,00",
-   "visitas": 314,
+   "visitas": 316,
    "pracas": [
     {
      "ordem": 1,
@@ -3737,7 +3737,7 @@
    "desconto": "42%",
    "descontoTexto": "abaixo da avaliação",
    "precoDestaque": "R$ 35.000,00",
-   "visitas": 1605,
+   "visitas": 1606,
    "pracas": [
     {
      "ordem": 1,
@@ -3764,7 +3764,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 649.000,00",
-   "visitas": 349,
+   "visitas": 351,
    "pracas": [
     {
      "ordem": 1,
@@ -3791,7 +3791,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 369.000,00",
-   "visitas": 569,
+   "visitas": 570,
    "pracas": [
     {
      "ordem": 1,
@@ -3818,7 +3818,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 3.198.000,00",
-   "visitas": 546,
+   "visitas": 547,
    "pracas": [
     {
      "ordem": 1,
@@ -3845,7 +3845,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 228.000,00",
-   "visitas": 310,
+   "visitas": 311,
    "pracas": [
     {
      "ordem": 1,
@@ -3872,7 +3872,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.392.000,00",
-   "visitas": 501,
+   "visitas": 502,
    "pracas": [
     {
      "ordem": 1,
@@ -3899,7 +3899,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 212.500,00",
-   "visitas": 307,
+   "visitas": 309,
    "pracas": [
     {
      "ordem": 1,
@@ -3926,7 +3926,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 436.000,00",
-   "visitas": 528,
+   "visitas": 529,
    "pracas": [
     {
      "ordem": 1,
@@ -3953,7 +3953,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 207.000,00",
-   "visitas": 324,
+   "visitas": 326,
    "pracas": [
     {
      "ordem": 1,
@@ -3980,7 +3980,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.709.000,00",
-   "visitas": 494,
+   "visitas": 495,
    "pracas": [
     {
      "ordem": 1,
@@ -4007,7 +4007,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 150.000,00",
-   "visitas": 298,
+   "visitas": 299,
    "pracas": [
     {
      "ordem": 1,
@@ -4034,7 +4034,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 180.500,00",
-   "visitas": 304,
+   "visitas": 305,
    "pracas": [
     {
      "ordem": 1,
@@ -4061,7 +4061,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 183.000,00",
-   "visitas": 344,
+   "visitas": 345,
    "pracas": [
     {
      "ordem": 1,
@@ -4088,7 +4088,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.040.000,00",
-   "visitas": 336,
+   "visitas": 337,
    "pracas": [
     {
      "ordem": 1,
@@ -4115,7 +4115,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 499.000,00",
-   "visitas": 302,
+   "visitas": 304,
    "pracas": [
     {
      "ordem": 1,
@@ -4142,7 +4142,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 888.000,00",
-   "visitas": 314,
+   "visitas": 315,
    "pracas": [
     {
      "ordem": 1,
@@ -4169,7 +4169,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 86.500,00",
-   "visitas": 322,
+   "visitas": 323,
    "pracas": [
     {
      "ordem": 1,
@@ -4196,7 +4196,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 82.000,00",
-   "visitas": 444,
+   "visitas": 445,
    "pracas": [
     {
      "ordem": 1,
@@ -4223,7 +4223,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 168.000,00",
-   "visitas": 307,
+   "visitas": 308,
    "pracas": [
     {
      "ordem": 1,
@@ -4250,7 +4250,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo da avaliação",
    "precoDestaque": "R$ 50.000,00",
-   "visitas": 3412,
+   "visitas": 3413,
    "pracas": [
     {
      "ordem": 1,
@@ -4277,7 +4277,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.450.000,00",
-   "visitas": 992,
+   "visitas": 993,
    "pracas": [
     {
      "ordem": 1,
@@ -4304,7 +4304,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 135.000,00",
-   "visitas": 967,
+   "visitas": 968,
    "pracas": [
     {
      "ordem": 1,
@@ -4331,7 +4331,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 750.000,00",
-   "visitas": 894,
+   "visitas": 895,
    "pracas": [
     {
      "ordem": 1,
@@ -4358,7 +4358,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 95.590,24",
-   "visitas": 938,
+   "visitas": 939,
    "pracas": [
     {
      "ordem": 1,
@@ -4385,7 +4385,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 95.590,24",
-   "visitas": 958,
+   "visitas": 959,
    "pracas": [
     {
      "ordem": 1,
@@ -4412,7 +4412,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 394.018,31",
-   "visitas": 911,
+   "visitas": 912,
    "pracas": [
     {
      "ordem": 1,
@@ -4439,7 +4439,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 76.938,49",
-   "visitas": 927,
+   "visitas": 928,
    "pracas": [
     {
      "ordem": 1,
@@ -4466,7 +4466,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 465.700,00",
-   "visitas": 953,
+   "visitas": 954,
    "pracas": [
     {
      "ordem": 1,
@@ -4493,7 +4493,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 378.000,00",
-   "visitas": 908,
+   "visitas": 909,
    "pracas": [
     {
      "ordem": 1,
@@ -4520,7 +4520,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 110.000,00",
-   "visitas": 903,
+   "visitas": 904,
    "pracas": [
     {
      "ordem": 1,
@@ -4547,7 +4547,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 69.000,00",
-   "visitas": 894,
+   "visitas": 895,
    "pracas": [
     {
      "ordem": 1,
@@ -4574,7 +4574,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 60.000,00",
-   "visitas": 904,
+   "visitas": 905,
    "pracas": [
     {
      "ordem": 1,
@@ -4601,7 +4601,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 73.000,00",
-   "visitas": 903,
+   "visitas": 904,
    "pracas": [
     {
      "ordem": 1,
@@ -4628,7 +4628,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 105.000,00",
-   "visitas": 910,
+   "visitas": 911,
    "pracas": [
     {
      "ordem": 1,
@@ -4655,7 +4655,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 74.087,06",
-   "visitas": 918,
+   "visitas": 919,
    "pracas": [
     {
      "ordem": 1,
@@ -4682,7 +4682,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 61.562,45",
-   "visitas": 919,
+   "visitas": 920,
    "pracas": [
     {
      "ordem": 1,
@@ -4709,7 +4709,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 61.562,45",
-   "visitas": 919,
+   "visitas": 920,
    "pracas": [
     {
      "ordem": 1,
@@ -4736,7 +4736,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 61.562,45",
-   "visitas": 926,
+   "visitas": 927,
    "pracas": [
     {
      "ordem": 1,
@@ -4763,7 +4763,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 61.562,45",
-   "visitas": 915,
+   "visitas": 916,
    "pracas": [
     {
      "ordem": 1,
@@ -4790,7 +4790,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 61.562,45",
-   "visitas": 937,
+   "visitas": 938,
    "pracas": [
     {
      "ordem": 1,
@@ -4817,7 +4817,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 61.562,45",
-   "visitas": 951,
+   "visitas": 952,
    "pracas": [
     {
      "ordem": 1,
@@ -4844,7 +4844,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 61.562,45",
-   "visitas": 930,
+   "visitas": 931,
    "pracas": [
     {
      "ordem": 1,
@@ -4871,7 +4871,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 434.000,00",
-   "visitas": 906,
+   "visitas": 907,
    "pracas": [
     {
      "ordem": 1,
@@ -4898,7 +4898,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 269.370,00",
-   "visitas": 950,
+   "visitas": 951,
    "pracas": [
     {
      "ordem": 1,
@@ -4925,7 +4925,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 2.000.000,00",
-   "visitas": 485,
+   "visitas": 486,
    "pracas": [
     {
      "ordem": 1,
@@ -4952,7 +4952,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 791.000,00",
-   "visitas": 448,
+   "visitas": 449,
    "pracas": [
     {
      "ordem": 1,
@@ -4979,7 +4979,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 785.000,00",
-   "visitas": 443,
+   "visitas": 444,
    "pracas": [
     {
      "ordem": 1,
@@ -5006,7 +5006,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 705.000,00",
-   "visitas": 476,
+   "visitas": 477,
    "pracas": [
     {
      "ordem": 1,
@@ -5033,7 +5033,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 333.528,35",
-   "visitas": 966,
+   "visitas": 967,
    "pracas": [
     {
      "ordem": 1,
@@ -5060,7 +5060,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 217.000,00",
-   "visitas": 486,
+   "visitas": 487,
    "pracas": [
     {
      "ordem": 1,
@@ -5087,7 +5087,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 333.528,37",
-   "visitas": 929,
+   "visitas": 930,
    "pracas": [
     {
      "ordem": 1,
@@ -5114,7 +5114,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 102.472,68",
-   "visitas": 917,
+   "visitas": 918,
    "pracas": [
     {
      "ordem": 1,
@@ -5141,7 +5141,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 669.000,00",
-   "visitas": 947,
+   "visitas": 948,
    "pracas": [
     {
      "ordem": 1,
@@ -5168,7 +5168,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.894.900,00",
-   "visitas": 1003,
+   "visitas": 1004,
    "pracas": [
     {
      "ordem": 1,
@@ -5195,7 +5195,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 5.000.000,00",
-   "visitas": 983,
+   "visitas": 984,
    "pracas": [
     {
      "ordem": 1,
@@ -5222,7 +5222,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 78.660,67",
-   "visitas": 413,
+   "visitas": 414,
    "pracas": [
     {
      "ordem": 1,
@@ -5249,7 +5249,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 2.046.703,43",
-   "visitas": 217,
+   "visitas": 218,
    "pracas": [
     {
      "ordem": 1,
@@ -5276,7 +5276,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 80.000,00",
-   "visitas": 607,
+   "visitas": 608,
    "pracas": [
     {
      "ordem": 1,
@@ -5303,7 +5303,7 @@
    "desconto": "-1%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 225.742,03",
-   "visitas": 190,
+   "visitas": 192,
    "pracas": [
     {
      "ordem": 1,
@@ -5339,7 +5339,7 @@
    "desconto": "7%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 108.506,75",
-   "visitas": 566,
+   "visitas": 567,
    "pracas": [
     {
      "ordem": 1,
@@ -5375,7 +5375,7 @@
    "desconto": "9%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 2.388.480,92",
-   "visitas": 602,
+   "visitas": 603,
    "pracas": [
     {
      "ordem": 1,
@@ -5411,7 +5411,7 @@
    "desconto": "-76%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 250.000,00",
-   "visitas": 274,
+   "visitas": 275,
    "pracas": [
     {
      "ordem": 1,
@@ -5447,7 +5447,7 @@
    "desconto": "-15%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 407.664,00",
-   "visitas": 849,
+   "visitas": 852,
    "pracas": [
     {
      "ordem": 1,
@@ -5483,7 +5483,7 @@
    "desconto": "38%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 388.102,14",
-   "visitas": 548,
+   "visitas": 549,
    "pracas": [
     {
      "ordem": 1,
@@ -5519,7 +5519,7 @@
    "desconto": "-3%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 445.670,00",
-   "visitas": 171,
+   "visitas": 172,
    "pracas": [
     {
      "ordem": 1,
@@ -5555,7 +5555,7 @@
    "desconto": "28%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 330.000,00",
-   "visitas": 450,
+   "visitas": 451,
    "pracas": [
     {
      "ordem": 1,
@@ -5591,7 +5591,7 @@
    "desconto": "4%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 410.715,73",
-   "visitas": 73,
+   "visitas": 74,
    "pracas": [
     {
      "ordem": 1,
@@ -5627,7 +5627,7 @@
    "desconto": "48%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 125.549,58",
-   "visitas": 375,
+   "visitas": 376,
    "pracas": [
     {
      "ordem": 1,
@@ -5663,7 +5663,7 @@
    "desconto": "2%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 156.720,00",
-   "visitas": 75,
+   "visitas": 76,
    "pracas": [
     {
      "ordem": 1,
@@ -5699,7 +5699,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 194.400,00",
-   "visitas": 1667,
+   "visitas": 1668,
    "pracas": [
     {
      "ordem": 1,
