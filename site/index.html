@@ -504,7 +504,13 @@
   }
 
   var TODOS = dados.lotes;
-  var hojeISO = new Date().toISOString().slice(0,10);
+
+  // "Hoje" é o dia em Brasília, não em UTC nem no fuso de quem abre a página.
+  // Com toISOString() o dia virava às 21h daqui: das 21h à meia-noite o
+  // calendário marcava amanhã como hoje e sumia com as praças de hoje, três
+  // horas antes da hora. en-CA já devolve no formato YYYY-MM-DD, que é como
+  // as datas dos dados são comparadas.
+  var hojeISO = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Sao_Paulo' });
 
   // regra de negócio: um dia com MAIS DE 10 lotes é um feirão
   var FEIRAO_MIN = 10;
