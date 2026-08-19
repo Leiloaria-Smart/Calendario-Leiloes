@@ -220,8 +220,16 @@ pode atrasar ou ser descartada em horário de pico — por isso o agendamento é
 
 ### Domínio próprio
 
-O DNS de `leiloariasmart.com.br` está no **Route 53 (AWS)**. Para o endereço
-definitivo, criar na zona hospedada:
+O DNS de `leiloariasmart.com.br` está no **Route 53 (AWS)**.
+
+> **Atenção, e isso engana:** o *e-mail* do domínio está na Hostinger (os `MX`
+> apontam para `mx1/mx2.hostinger.com`), então é natural supor que o DNS
+> também esteja. Não está. Os nameservers registrados no Registro.br são os do
+> Route 53, e é ele quem responde as consultas. Um registro criado no painel da
+> Hostinger fica numa zona inativa e **não tem efeito nenhum** — você espera
+> propagar uma coisa que nunca vai propagar.
+
+Para o endereço definitivo, criar na zona hospedada do Route 53:
 
 | Campo | Valor |
 |---|---|
