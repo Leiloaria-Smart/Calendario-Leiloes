@@ -4,17 +4,37 @@ Calendário web que mostra, dia a dia, quantos lotes têm praça agendada. Clica
 no dia abre a lista com horário, valor e link direto para a página do lote em
 `leiloariasmart.com.br`.
 
-Os dados são extraídos automaticamente de https://leiloariasmart.com.br/busca.
+**No ar em:** https://leiloaria-smart.github.io/Calendario-Leiloes/
+(o endereço definitivo será `calendario.leiloariasmart.com.br` — falta o
+registro no DNS; ver [Domínio próprio](#domínio-próprio))
+
+Os dados são extraídos automaticamente de https://leiloariasmart.com.br/busca,
+todo dia às 6h13 da manhã, sem ninguém precisar rodar nada.
 
 ---
 
-## Como usar
+## Como funciona, em uma frase
 
-### 1. Atualizar os dados
+Um workflow do GitHub Actions roda o scraper todo dia, commita os dados se o
+acervo mudou e republica o site. **Não há nada para fazer manualmente** — nem
+rodar script, nem subir arquivo.
+
+```
+06:13 → scraper → mudou? → commit → publica no GitHub Pages
+                ↘ veio quebrado? → não publica → abre issue → e-mail
+```
+
+---
+
+## Rodar à mão (opcional)
+
+Só é preciso quando se quer conferir alguma coisa na hora, ou depois de mexer
+no `scraper.js`.
 
 ```bash
 node scraper.js                    # pega tudo que estiver publicado
 node scraper.js --ate 2026-09-30   # só até a data indicada
+node scraper.js --forcar           # grava mesmo com a conferência reclamando
 ```
 
 Gera dois arquivos em `site/`:
@@ -27,16 +47,17 @@ Gera dois arquivos em `site/`:
 O `.js` existe porque o navegador bloqueia `fetch()` de arquivo local
 (`file://`) — com ele o `index.html` abre com duplo clique, sem servidor.
 
-### 2. Abrir o calendário
+Códigos de saída: `0` gravou (ou não precisou), `1` erro de rede/HTTP,
+`2` recusou gravar porque o resultado parecia quebrado.
 
-Duplo clique em `site/index.html`. Para servir de verdade, suba a pasta `site/`
-em qualquer hospedagem estática (é só HTML/CSS/JS, sem build).
+> **Cuidado com o `--ate`:** ele grava por cima do `lotes.json` de produção com
+> um recorte parcial. Se você commitar esse arquivo, o site perde os lotes que
+> ficaram de fora. Depois de usar, rode `node scraper.js` de novo antes de
+> commitar.
 
-Para testar com servidor local:
+### Abrir o calendário localmente
 
-```bash
-npx serve site
-```
+Duplo clique em `site/index.html`, ou `npx serve site` para servir de verdade.
 
 ---
 
@@ -44,11 +65,13 @@ npx serve site
 
 ```
 calendario-leiloes/
-├── scraper.js          # baixa e parseia o site -> lotes.json + lotes.js
+├── scraper.js                        # baixa e parseia o site -> lotes.json + lotes.js
 ├── site/
-│   ├── index.html      # o calendário (arquivo único, sem dependências)
-│   ├── lotes.json      # dados gerados
-│   └── lotes.js        # dados gerados (window.DADOS_LEILAO)
+│   ├── index.html                    # o calendário (arquivo único, sem dependências)
+│   ├── lotes.json                    # dados gerados
+│   └── lotes.js                      # dados gerados (window.DADOS_LEILAO)
+├── .github/workflows/calendario.yml  # a automação: coleta, commita e publica
+├── .gitattributes                    # LF fixo (o scraper roda no Windows e no Linux)
 └── README.md
 ```
 
@@ -59,11 +82,11 @@ calendario-leiloes/
 ```jsonc
 {
   "fonte": "https://leiloariasmart.com.br/busca",
-  "atualizadoEm": "2026-08-17T04:44:49.000Z",
-  "total": 188,              // imóveis
+  "atualizadoEm": "2026-08-19T11:58:54.000Z",
+  "total": 187,              // imóveis
   "totalPracas": 261,        // datas agendadas (um imóvel pode ter 1ª e 2ª praça)
-  "primeiraData": "2026-08-03",
-  "ultimaData": "2026-09-18",
+  "primeiraData": "2026-08-04",
+  "ultimaData": "2026-09-29",
   "lotes": [
     {
       "id": 1700,
@@ -94,7 +117,7 @@ calendario-leiloes/
 ```
 
 **Cada praça vira um evento no calendário.** Um imóvel com 1ª e 2ª praça aparece
-nos dois dias — por isso `totalPracas` (261) é maior que `total` (188).
+nos dois dias — por isso `totalPracas` (261) é maior que `total` (187).
 
 ---
 
@@ -110,15 +133,50 @@ catálogo inteiro numa página só — sem paginação. O scraper:
    (datas das praças), `percentual-praca`, `preco-imovel`, `visitas-imovel`,
    `faixa-*-imovel` (ocupado/desocupado);
 4. deriva `tipo`, `cidade` e `uf` a partir do título;
-5. grava o JSON.
+5. **confere o resultado** (abaixo) e só então grava.
 
 Sem dependências externas — só `fetch` nativo do Node 18+.
 
+### Quando ele se recusa a gravar
+
+Este é o ponto mais importante do projeto, e o motivo de ele poder rodar
+sozinho. O parsing depende das classes CSS do site. Se elas mudarem, o scraper
+**não estoura erro** — ele volta vazio, calado. Sem proteção, a automação
+publicaria um calendário em branco todo dia e ninguém perceberia.
+
+Antes de gravar, ele para se:
+
+| Sinal | O que denuncia |
+|---|---|
+| página com menos de 100 KB | caiu numa página de erro ou bloqueio |
+| nenhum card no HTML | o marcador `caixa-imoveis` mudou |
+| nenhum lote com praça | os blocos de data mudaram |
+| mais de 20% dos lotes sem título | `info-imovel-2` mudou |
+| total caiu mais de 75% | mudança grande demais para ser real |
+| praças por lote caíram mais de 25% | um dos blocos de data mudou, e os lotes vêm com datas faltando |
+
+Recusando, ele sai com código `2` **sem tocar nos arquivos** — o calendário
+continua no ar com os dados bons do dia anterior, em vez de ficar vazio.
+
+O último sinal existe porque os outros não pegavam o caso mais traiçoeiro:
+renomeando só o bloco da 2ª praça, vêm os mesmos 187 lotes, com título, numa
+página de 1,2 MB — cada um com metade das datas. A proporção de praças por lote
+cai de 1,40 para 1,00 e entrega.
+
+### Ele também não reescreve quando nada mudou
+
+Duas coisas mudam sozinhas a cada coleta sem o acervo ter mudado: o carimbo de
+tempo e o contador de visitas de cada imóvel. Só o contador respondia por 74 das
+76 linhas de um diff de dia normal, num campo que o calendário nem exibe.
+Ignorando os dois, **cada commit do histórico significa mudança real no
+acervo** — e dá para ver o que aconteceu no catálogo só olhando a lista de
+commits.
+
 ### Se o site mudar o HTML
 
-O parsing depende dessas classes CSS. Se um dia o scraper voltar 0 cards ou
-campos vazios, o ponto a conferir é o bloco `parseCard()` em `scraper.js` —
-as classes provavelmente mudaram de nome.
+O ponto a conferir é `parseCard()` no `scraper.js` — as classes provavelmente
+mudaram de nome. A issue que a automação abre já diz isso e mostra qual
+conferência reclamou.
 
 ---
 
@@ -127,20 +185,82 @@ as classes provavelmente mudaram de nome.
 - **Percentuais negativos** (`-8%`) existem no site: significam lance acima da
   avaliação. O calendário mostra como "8% acima", em cinza, em vez de "OFF".
 - **Praças já encerradas** vêm marcadas com `"encerrada": true` (o site rasura
-  esses blocos). Elas continuam no calendário para manter o histórico do mês;
-  os dias passados aparecem esmaecidos.
+  esses blocos). Elas continuam no JSON para manter o histórico do mês; o
+  calendário só exibe o que ainda vai acontecer.
+- **"Hoje" é o dia em Brasília**, não em UTC nem no fuso de quem abre a página.
+  O calendário se vira sozinho: como a data é calculada no navegador a cada
+  visita, ele avança de dia mesmo que passe uma semana sem commit novo.
 - O calendário limita a navegação ao intervalo que existe nos dados — não dá
   para navegar para meses vazios.
 
 ---
 
-## Automatizar a atualização
+## Publicação e atualização automática
 
-Para manter o calendário sempre em dia, agende o scraper. No Windows:
+Tudo vive em `.github/workflows/calendario.yml`, num único workflow com três
+jobs. O agendamento é `13 9 * * *` — 09:13 UTC, que é 06:13 em Brasília.
 
-```powershell
-schtasks /create /tn "CalendarioLeiloes" /tr "node C:\Users\santo\projetos\calendario-leiloes\scraper.js" /sc daily /st 06:00
-```
+### Por que tudo num run só
 
-Depois é só publicar a pasta `site/` novamente (ou apontar a hospedagem para
-ela, se o deploy for automático).
+Um push feito de dentro de um workflow com o `GITHUB_TOKEN` **não dispara outro
+workflow** (é a proteção do GitHub contra loop infinito). Separar "coletar" e
+"publicar" em dois workflows faria o scraper commitar todo dia e o site nunca
+sair do lugar. Por isso os jobs são ligados por `needs`, no mesmo run.
+
+Pela mesma razão, os dois `checkout` pedem `ref` explícito: o padrão traz o
+commit que disparou o run, que fica atrás da ponta de `main` assim que o job
+anterior empurra os dados.
+
+### Rodar fora de hora
+
+Actions → *Atualizar e publicar o calendário* → **Run workflow**. Serve também
+quando uma execução agendada for pulada (o GitHub avisa que execução agendada
+pode atrasar ou ser descartada em horário de pico — por isso o agendamento é
+6h13 e não 6h em ponto).
+
+### Domínio próprio
+
+O DNS de `leiloariasmart.com.br` está no **Route 53 (AWS)**. Para o endereço
+definitivo, criar na zona hospedada:
+
+| Campo | Valor |
+|---|---|
+| Tipo | `CNAME` |
+| Nome | `calendario` |
+| Valor | `leiloaria-smart.github.io` |
+| TTL | 300 |
+
+Sem o nome do repositório no valor — é sempre `usuario.github.io`.
+
+Depois que o DNS resolver, o domínio é registrado em Settings → Pages → Custom
+domain, e o *Enforce HTTPS* fica disponível quando o certificado sair (pode
+levar até 24 h).
+
+**Não adianta criar um arquivo `CNAME` na pasta `site/`**: com publicação via
+Actions, o GitHub ignora esse arquivo. O domínio vive só na configuração do
+Pages.
+
+---
+
+## Quando chegar um e-mail de falha
+
+A automação abre uma issue quando algo quebra, e o GitHub manda o e-mail. A
+issue já vem com o diagnóstico, e distingue os dois casos:
+
+- **"A coleta dos dados falhou"** — o scraper recusou o resultado. Mostra qual
+  conferência reclamou. O calendário continua no ar com os dados de ontem. Se os
+  dados estiverem certos e a conferência é que foi rigorosa demais,
+  `node scraper.js --forcar` grava assim mesmo.
+- **"A publicação falhou"** — a coleta funcionou; quem falhou foi o deploy.
+  Costuma ser passageiro; reexecutar o workflow resolve.
+
+Havendo issue aberta, a automação **comenta nela** em vez de abrir outra — o
+e-mail chega igual, sem virar uma issue por dia. Feche a issue quando resolver.
+
+### Um caso que não gera aviso
+
+Em repositório público, o GitHub **desativa workflows agendados após 60 dias sem
+atividade humana no repositório** — e commits feitos pelo próprio bot em geral
+não contam. O GitHub avisa por e-mail antes de desativar; para religar é Actions
+→ o workflow → *Enable workflow*. Um `Run workflow` manual de vez em quando
+também segura.
