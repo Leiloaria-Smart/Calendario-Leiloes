@@ -102,6 +102,26 @@
   .fcard-credor{font-size:11px;color:var(--texto-fraco);margin-top:3px;
                 white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
+  /* A seção inteira ganha faixa, não só cada card. Dia com muito lote é dia
+     de oportunidade, e é o que o visitante quer achar primeiro — então o
+     bloco se separa do resto da página em vez de ser mais uma lista.
+     Os cards ficam brancos de propósito: sobre a faixa quente eles saltam,
+     e todo o texto deles mantém o contraste que já tinha contra o branco.
+     Cores medidas, não estimadas: sobre #fffaef o âmbar original (#a86e00)
+     cai para 4,12:1 e o cinza fraco (#6b7780) para 4,41:1, os dois abaixo
+     do mínimo de 4,5. Os tons abaixo dão 5,35:1 e 5,32:1. */
+  .secao-feiroes{background:#fffaef;border:1px solid #ffdd93;
+                 border-radius:var(--raio);padding:17px 18px 19px}
+  .secao-feiroes .secao-titulo{margin-bottom:13px}
+  .secao-feiroes .secao-titulo h2{font-size:13.5px;color:#8f5e00}
+  .secao-feiroes .secao-titulo span{color:#5f6a72}
+  .secao-feiroes .fcard{border-left-width:4px}
+  .secao-feiroes .fcard-lotes{font-size:29px}
+
+  /* o .grid do calendário não tem margem inferior; sem isto o Panorama, que
+     agora vem depois dele, encostaria na grade */
+  .secao-panorama{margin-top:34px}
+
   /* ---------------------------------------------------------- dashboards */
   /* estética do painel do Lovable: card branco r=14, borda fina, cor de
      destaque por gráfico, eixo Y com marcas. As cores #00a6ea e #faa628 ficam
@@ -338,7 +358,7 @@
   <section class="kpis" id="kpis"></section>
 
   <!-- ------------------------------------------------ feirões em destaque -->
-  <section class="secao" id="secaoFeiroes">
+  <section class="secao secao-feiroes" id="secaoFeiroes">
     <div class="secao-titulo">
       <h2>Feirões em destaque</h2>
       <span id="subFeiroes"></span>
@@ -361,31 +381,6 @@
       </svg>
     </a>
   </div>
-
-  <!-- ---------------------------------------------------------- dashboards -->
-  <section class="secao">
-    <div class="secao-titulo">
-      <h2>Panorama</h2>
-      <span>distribuição dos imóveis do filtro atual</span>
-    </div>
-    <div class="dashes">
-      <div class="dash">
-        <h3>Por tipo de imóvel</h3>
-        <div class="dash-sub" id="subTipo"></div>
-        <div id="dashTipo"></div>
-      </div>
-      <div class="dash">
-        <h3>Faixas de lance mínimo</h3>
-        <div class="dash-sub" id="subFaixa"></div>
-        <div id="dashFaixa"></div>
-      </div>
-      <div class="dash">
-        <h3>Imóveis por estado</h3>
-        <div class="dash-sub" id="subUf"></div>
-        <div id="dashUf"></div>
-      </div>
-    </div>
-  </section>
 
   <!-- ------------------------------------------------------- filtros -->
   <section class="filtros">
@@ -481,6 +476,33 @@
     </aside>
 
   </div>
+
+  <!-- Panorama depois do calendário: o calendário é o que a pessoa veio ver,
+       e os gráficos são leitura de apoio. Continua reagindo aos filtros lá
+       de cima, que valem para a página inteira. -->
+  <section class="secao secao-panorama">
+    <div class="secao-titulo">
+      <h2>Panorama</h2>
+      <span>distribuição dos imóveis do filtro atual</span>
+    </div>
+    <div class="dashes">
+      <div class="dash">
+        <h3>Por tipo de imóvel</h3>
+        <div class="dash-sub" id="subTipo"></div>
+        <div id="dashTipo"></div>
+      </div>
+      <div class="dash">
+        <h3>Faixas de lance mínimo</h3>
+        <div class="dash-sub" id="subFaixa"></div>
+        <div id="dashFaixa"></div>
+      </div>
+      <div class="dash">
+        <h3>Imóveis por estado</h3>
+        <div class="dash-sub" id="subUf"></div>
+        <div id="dashUf"></div>
+      </div>
+    </div>
+  </section>
 
   <footer>
     Dados extraídos de <a href="https://leiloariasmart.com.br" target="_blank" rel="noopener">leiloariasmart.com.br</a>
