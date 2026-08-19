@@ -555,6 +555,24 @@
   // as datas dos dados são comparadas.
   var hojeISO = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Sao_Paulo' });
 
+  // Janela corrida: o calendário cobre de hoje até 60 dias à frente, e anda
+  // um dia por dia — hoje sai por baixo, um dia novo entra por cima.
+  //
+  // Fica aqui, e não no scraper, por um motivo concreto: o scraper não
+  // reescreve os arquivos quando o acervo não muda, então uma janela
+  // calculada lá congelaria no dia da última mudança e pararia de andar.
+  // Aqui ela se refaz a cada visita, junto com o hojeISO.
+  //
+  // A conta é em UTC de propósito: hojeISO já é a data certa em Brasília, e
+  // somar dias sobre uma data pura, sem hora, não tem como escorregar de fuso.
+  var JANELA_DIAS = 60;
+  var limiteISO = (function(){
+    var p = hojeISO.split('-');
+    var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+    d.setUTCDate(d.getUTCDate() + JANELA_DIAS);
+    return d.toISOString().slice(0, 10);
+  })();
+
   // regra de negócio: um dia com MAIS DE 10 lotes é um feirão
   var FEIRAO_MIN = 10;
   function ehFeirao(iso){
@@ -629,10 +647,12 @@
     return String(p.ordem) === filtros.praca;
   }
 
-  // o calendário só mostra o que ainda vai acontecer — praça de data passada
-  // sai de tudo: calendário, feirões, KPIs e dashboards
-  function pracaFutura(p){ return p.data >= hojeISO; }
-  function pracaVale(p){ return pracaFutura(p) && pracaPassa(p); }
+  // o calendário mostra só a janela de 60 dias a partir de hoje — praça de
+  // data passada, ou além do limite, sai de tudo: calendário, feirões, KPIs
+  // e gráficos. Como tudo na página é calculado a partir daqui, basta este
+  // filtro para a janela inteira andar sozinha todo dia.
+  function pracaNaJanela(p){ return p.data >= hojeISO && p.data <= limiteISO; }
+  function pracaVale(p){ return pracaNaJanela(p) && pracaPassa(p); }
 
   function contarAtivos(){
     var n = 0;
@@ -972,7 +992,10 @@
       if (feirao) cls += ' feirao';
       if (iso === hojeISO) cls += ' hoje';
       if (iso === selecionado) cls += ' sel';
-      if (iso < hojeISO) cls += ' passado';
+      // esmaecido dos dois lados: antes de hoje e depois do limite da janela.
+      // Sem isto, um dia além dos 60 ficaria igual a um dia sem leilão, e a
+      // pessoa leria "não tem nada nesse dia" em vez de "ainda não alcança".
+      if (iso < hojeISO || iso > limiteISO) cls += ' passado';
 
       html += '<' + (evs ? 'button' : 'div') + ' class="' + cls + '"' +
               (evs ? ' data-dia="' + iso + '"' : '') + '>' +
