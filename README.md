@@ -4,9 +4,14 @@ Calendário web que mostra, dia a dia, quantos lotes têm praça agendada. Clica
 no dia abre a lista com horário, valor e link direto para a página do lote em
 `leiloariasmart.com.br`.
 
-**No ar em:** https://leiloaria-smart.github.io/Calendario-Leiloes/
+**No ar em:** https://leiloaria-smart.github.io
 (o endereço definitivo será `calendario.leiloariasmart.com.br` — falta o
 registro no DNS; ver [Domínio próprio](#domínio-próprio))
+
+> O repositório se chama `Leiloaria-Smart.github.io` de propósito: repositório
+> com o nome `usuario.github.io` é publicado na **raiz** do endereço, sem o
+> nome do repositório depois da barra. Renomear o repositório muda o endereço
+> do site junto.
 
 Os dados são extraídos automaticamente de https://leiloariasmart.com.br/busca,
 todo dia às 6h13 da manhã, sem ninguém precisar rodar nada.
@@ -228,6 +233,14 @@ O DNS de `leiloariasmart.com.br` está no **Route 53 (AWS)**.
 > Route 53, e é ele quem responde as consultas. Um registro criado no painel da
 > Hostinger fica numa zona inativa e **não tem efeito nenhum** — você espera
 > propagar uma coisa que nunca vai propagar.
+>
+> E não vale a pena "resolver" isso mudando os nameservers para a Hostinger: a
+> zona serve três provedores ao mesmo tempo — a raiz e o `www` na AWS (o site),
+> os `MX`/`autodiscover`/`autoconfig` na Hostinger (o e-mail) e o `admin` no
+> Google (`ghs.googlehosted.com`), mais o SPF e a verificação do Google nos
+> `TXT`. Recriar isso à mão em outro provedor arrisca derrubar site, e-mail ou
+> painel, e só quem tem acesso ao Route 53 consegue listar a zona inteira com
+> segurança — de fora, só dá para achar os nomes que se adivinha.
 
 Para o endereço definitivo, criar na zona hospedada do Route 53:
 
