@@ -1,533 +1,11 @@
 {
  "fonte": "https://leiloariasmart.com.br/busca",
- "atualizadoEm": "2026-08-20T10:52:38.194Z",
- "total": 188,
- "totalPracas": 262,
+ "atualizadoEm": "2026-08-21T10:53:41.228Z",
+ "total": 168,
+ "totalPracas": 240,
  "primeiraData": "2026-08-04",
  "ultimaData": "2026-10-05",
  "lotes": [
-  {
-   "id": 1551,
-   "titulo": "Casa de Condomínio 347m² Itaboraí/RJ",
-   "url": "https://leiloariasmart.com.br/imovel/1551",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/717c9f1fbcbbf7aaaa4d8f9074ac82d7.png",
-   "tipo": "Casa de Condomínio",
-   "cidade": "Itaboraí",
-   "uf": "RJ",
-   "modalidade": "Extrajudicial",
-   "comitente": "Santiago Home Equity FIDC",
-   "situacao": null,
-   "desconto": "76%",
-   "descontoTexto": "abaixo da avaliação",
-   "precoDestaque": "R$ 140.000,00",
-   "visitas": 3458,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "14:00",
-     "valor": "R$ 140.000,00",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1744,
-   "titulo": "Lote 275m² – Matão/SP",
-   "url": "https://leiloariasmart.com.br/imovel/1744",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/c852b29f85966437011ba58826a93b58.jpeg",
-   "tipo": "Terreno",
-   "cidade": "Matão",
-   "uf": "SP",
-   "modalidade": "Extrajudicial",
-   "comitente": "JARDIM EUGENIA EMP. IMOBILIARIO LTDA",
-   "situacao": "Desocupado",
-   "desconto": "-8%",
-   "descontoTexto": "abaixo na 2ª praça",
-   "precoDestaque": "R$ 107.483,62",
-   "visitas": 666,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "1ª praça",
-     "data": "2026-08-18",
-     "dataBr": "18/08/2026",
-     "hora": "14:00",
-     "valor": "R$ 99.350,61",
-     "encerrada": true
-    },
-    {
-     "ordem": 2,
-     "rotulo": "2ª praça",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "14:00",
-     "valor": "R$ 107.483,62",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1623,
-   "titulo": "Terreno industrial 18.840m² Marituba/PA",
-   "url": "https://leiloariasmart.com.br/imovel/1623",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/1b61abedb685712517de74861537f92d.jpg",
-   "tipo": "Terreno",
-   "cidade": "Marituba",
-   "uf": "PA",
-   "modalidade": "Extrajudicial",
-   "comitente": "Santiago Home Equity FIDC",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 1.900.000,00",
-   "visitas": 1116,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 1.900.000,00",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1626,
-   "titulo": "Casa 404 m² Curitiba/PR",
-   "url": "https://leiloariasmart.com.br/imovel/1626",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/5841b49fb62c23d1b97ce552d62c1b0a.jpg",
-   "tipo": "Casa",
-   "cidade": "Curitiba",
-   "uf": "PR",
-   "modalidade": "Extrajudicial",
-   "comitente": "RIZA SECURITIZADORA S.A",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 1.560.598,87",
-   "visitas": 1322,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 1.560.598,87",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1630,
-   "titulo": "Apartamento 239 m² Guarujá/SP",
-   "url": "https://leiloariasmart.com.br/imovel/1630",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/8f1e0f922d17a2b22315e5e657f102a9.jpg",
-   "tipo": "Apartamento",
-   "cidade": "Guarujá",
-   "uf": "SP",
-   "modalidade": "Extrajudicial",
-   "comitente": "RIZA SECURITIZADORA S.A",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 1.018.606,54",
-   "visitas": 2061,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 1.018.606,54",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1627,
-   "titulo": "Edificação Mista 391m²",
-   "url": "https://leiloariasmart.com.br/imovel/1627",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/6fdcc13918ae6f1419f938d4fe69cf05.jpg",
-   "tipo": "Edificação Mista",
-   "cidade": null,
-   "uf": null,
-   "modalidade": "Extrajudicial",
-   "comitente": "RIZA SECURITIZADORA S.A",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 1.000.000,00",
-   "visitas": 1827,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 1.000.000,00",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1628,
-   "titulo": "Casa 210m² Rio de Janeiro/RJ",
-   "url": "https://leiloariasmart.com.br/imovel/1628",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/b705447267c61bbda08d2f1d3845ed5d.jpg",
-   "tipo": "Casa",
-   "cidade": "Rio de Janeiro",
-   "uf": "RJ",
-   "modalidade": "Extrajudicial",
-   "comitente": "RIZA SECURITIZADORA S.A",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 647.528,85",
-   "visitas": 2007,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 647.528,85",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1629,
-   "titulo": "Casa 201 m² Rio Claro/SP",
-   "url": "https://leiloariasmart.com.br/imovel/1629",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/4097312ea2c8f6ec2cd9fa5374cef5d4.jpg",
-   "tipo": "Casa",
-   "cidade": "Rio Claro",
-   "uf": "SP",
-   "modalidade": "Extrajudicial",
-   "comitente": "RIZA SECURITIZADORA S.A",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 524.100,89",
-   "visitas": 2003,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 524.100,89",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1634,
-   "titulo": "Sobrado 100 m² São Paulo/SP",
-   "url": "https://leiloariasmart.com.br/imovel/1634",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/5d6bdec7fb0403104bdfe5d3179a08fd.jpg",
-   "tipo": "Sobrado",
-   "cidade": "São Paulo",
-   "uf": "SP",
-   "modalidade": "Extrajudicial",
-   "comitente": "RIZA SECURITIZADORA S.A",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 397.221,01",
-   "visitas": 2435,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 397.221,01",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1633,
-   "titulo": "Apartamento 63 m² São Paulo/SP",
-   "url": "https://leiloariasmart.com.br/imovel/1633",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/e231d57dced7286b025826646b48eb07.jpg",
-   "tipo": "Apartamento",
-   "cidade": "São Paulo",
-   "uf": "SP",
-   "modalidade": "Extrajudicial",
-   "comitente": "RIZA SECURITIZADORA S.A",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 350.000,00",
-   "visitas": 2466,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 350.000,00",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1625,
-   "titulo": "Apartamento 57m² São Paulo/SP",
-   "url": "https://leiloariasmart.com.br/imovel/1625",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/a983e83ad2c454c40cf143cf24cbcd7a.jpg",
-   "tipo": "Apartamento",
-   "cidade": "São Paulo",
-   "uf": "SP",
-   "modalidade": "Extrajudicial",
-   "comitente": "RIZA SECURITIZADORA S.A",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 321.150,15",
-   "visitas": 1303,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 321.150,15",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1632,
-   "titulo": "Casa 80 m² Luziânia/GO",
-   "url": "https://leiloariasmart.com.br/imovel/1632",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/0828cc3ab562fb4bb5444b68fb17ab8f.jpg",
-   "tipo": "Casa",
-   "cidade": "Luziânia",
-   "uf": "GO",
-   "modalidade": "Extrajudicial",
-   "comitente": "RIZA SECURITIZADORA S.A",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 170.000,00",
-   "visitas": 1152,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 170.000,00",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1620,
-   "titulo": "Terreno 188 m² Teresina/PI",
-   "url": "https://leiloariasmart.com.br/imovel/1620",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/2e567927da6f46f4335e98e60f1a4664.jpg",
-   "tipo": "Terreno",
-   "cidade": "Teresina",
-   "uf": "PI",
-   "modalidade": "Extrajudicial",
-   "comitente": "Santiago Home Equity FIDC",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 150.000,00",
-   "visitas": 1099,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 150.000,00",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1622,
-   "titulo": "Terreno 193 m² Teresina/PI",
-   "url": "https://leiloariasmart.com.br/imovel/1622",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/3f67b56bf5e21d82b520ef441d826690.jpg",
-   "tipo": "Terreno",
-   "cidade": "Teresina",
-   "uf": "PI",
-   "modalidade": "Extrajudicial",
-   "comitente": "Santiago Home Equity FIDC",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 140.421,69",
-   "visitas": 1090,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 140.421,69",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1618,
-   "titulo": "Apartamento 36m² Niterói/RJ",
-   "url": "https://leiloariasmart.com.br/imovel/1618",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/7827a4b535436d3d445725d016ae7bf1.jpg",
-   "tipo": "Apartamento",
-   "cidade": "Niterói",
-   "uf": "RJ",
-   "modalidade": "Extrajudicial",
-   "comitente": "Santiago Home Equity FIDC",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 130.000,00",
-   "visitas": 2007,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 130.000,00",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1621,
-   "titulo": "Casa 102 m² Feira de Santana/BA",
-   "url": "https://leiloariasmart.com.br/imovel/1621",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/9df3c7af7404f6d68e3b41be678b1d64.jpg",
-   "tipo": "Casa",
-   "cidade": "Feira de Santana",
-   "uf": "BA",
-   "modalidade": "Extrajudicial",
-   "comitente": "Santiago Home Equity FIDC",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 125.000,00",
-   "visitas": 1680,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 125.000,00",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1624,
-   "titulo": "Apartamento 45m² Rio de Janeiro/RJ",
-   "url": "https://leiloariasmart.com.br/imovel/1624",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/e8bab935ca963afcc2e81ae272fbc2b0.jpg",
-   "tipo": "Apartamento",
-   "cidade": "Rio de Janeiro",
-   "uf": "RJ",
-   "modalidade": "Extrajudicial",
-   "comitente": "Santiago Home Equity FIDC",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 120.000,00",
-   "visitas": 1682,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 120.000,00",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1619,
-   "titulo": "Terreno 190 m² Teresina/PI",
-   "url": "https://leiloariasmart.com.br/imovel/1619",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/c7ce99b34a98d4355a61bb3728160e7d.jpg",
-   "tipo": "Terreno",
-   "cidade": "Teresina",
-   "uf": "PI",
-   "modalidade": "Extrajudicial",
-   "comitente": "Santiago Home Equity FIDC",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 115.000,00",
-   "visitas": 1133,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 115.000,00",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1631,
-   "titulo": "Casa 66 m² Piracicaba/SP",
-   "url": "https://leiloariasmart.com.br/imovel/1631",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/15d4e6a38dbf9660cde7865bcfcd24f1.jpg",
-   "tipo": "Casa",
-   "cidade": "Piracicaba",
-   "uf": "SP",
-   "modalidade": "Extrajudicial",
-   "comitente": "RIZA SECURITIZADORA S.A",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 100.000,00",
-   "visitas": 1432,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-20",
-     "dataBr": "20/08/2026",
-     "hora": "15:00",
-     "valor": "R$ 100.000,00",
-     "encerrada": false
-    }
-   ]
-  },
   {
    "id": 1553,
    "titulo": "Casa 115m² Cuiabá/MT",
@@ -542,14 +20,14 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 240.000,00",
-   "visitas": 3263,
+   "visitas": 3394,
    "pracas": [
     {
      "ordem": 1,
      "rotulo": "Praça única",
      "data": "2026-08-21",
      "dataBr": "21/08/2026",
-     "hora": "14:00",
+     "hora": "15:00",
      "valor": "R$ 240.000,00",
      "encerrada": false
     }
@@ -565,11 +43,11 @@
    "uf": "RS",
    "modalidade": "Extrajudicial",
    "comitente": "Provincia",
-   "situacao": null,
+   "situacao": "Desocupado",
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 870.000,00",
-   "visitas": 1088,
+   "visitas": 1138,
    "pracas": [
     {
      "ordem": 1,
@@ -592,42 +70,6 @@
    ]
   },
   {
-   "id": 1651,
-   "titulo": "Cobertura 219m² - Brasília/DF",
-   "url": "https://leiloariasmart.com.br/imovel/1651",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/289537db6403775b68c94b883411d8d9.jpg",
-   "tipo": "Cobertura",
-   "cidade": "Brasília",
-   "uf": "DF",
-   "modalidade": "Extrajudicial",
-   "comitente": "Provincia",
-   "situacao": "Desocupado",
-   "desconto": "40%",
-   "descontoTexto": "abaixo na 2ª praça",
-   "precoDestaque": "R$ 564.000,00",
-   "visitas": 2522,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "1ª praça",
-     "data": "2026-08-04",
-     "dataBr": "04/08/2026",
-     "hora": "09:35",
-     "valor": "R$ 940.000,00",
-     "encerrada": true
-    },
-    {
-     "ordem": 2,
-     "rotulo": "2ª praça",
-     "data": "2026-08-25",
-     "dataBr": "25/08/2026",
-     "hora": "09:35",
-     "valor": "R$ 564.000,00",
-     "encerrada": false
-    }
-   ]
-  },
-  {
    "id": 1653,
    "titulo": "Casa 117m² - Diadema/SP",
    "url": "https://leiloariasmart.com.br/imovel/1653",
@@ -641,7 +83,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 164.500,00",
-   "visitas": 1597,
+   "visitas": 1646,
    "pracas": [
     {
      "ordem": 1,
@@ -677,7 +119,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 322.800,00",
-   "visitas": 2587,
+   "visitas": 2676,
    "pracas": [
     {
      "ordem": 1,
@@ -713,7 +155,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 1.013.400,00",
-   "visitas": 1406,
+   "visitas": 1456,
    "pracas": [
     {
      "ordem": 1,
@@ -749,7 +191,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 329.010,31",
-   "visitas": 1486,
+   "visitas": 1546,
    "pracas": [
     {
      "ordem": 1,
@@ -785,7 +227,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 433.800,00",
-   "visitas": 1736,
+   "visitas": 1788,
    "pracas": [
     {
      "ordem": 1,
@@ -821,7 +263,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 1.263.600,00",
-   "visitas": 1471,
+   "visitas": 1509,
    "pracas": [
     {
      "ordem": 1,
@@ -857,7 +299,7 @@
    "desconto": "17%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 15.000.000,00",
-   "visitas": 1304,
+   "visitas": 1347,
    "pracas": [
     {
      "ordem": 1,
@@ -893,7 +335,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 480.000,00",
-   "visitas": 1114,
+   "visitas": 1154,
    "pracas": [
     {
      "ordem": 1,
@@ -929,7 +371,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 333.992,05",
-   "visitas": 1519,
+   "visitas": 1568,
    "pracas": [
     {
      "ordem": 1,
@@ -965,7 +407,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 150.000,00",
-   "visitas": 1172,
+   "visitas": 1214,
    "pracas": [
     {
      "ordem": 1,
@@ -1001,7 +443,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 930.000,00",
-   "visitas": 1164,
+   "visitas": 1206,
    "pracas": [
     {
      "ordem": 1,
@@ -1037,7 +479,7 @@
    "desconto": "42%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 380.000,00",
-   "visitas": 1133,
+   "visitas": 1174,
    "pracas": [
     {
      "ordem": 1,
@@ -1073,7 +515,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 2.910.000,00",
-   "visitas": 1176,
+   "visitas": 1217,
    "pracas": [
     {
      "ordem": 1,
@@ -1109,7 +551,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 659.400,00",
-   "visitas": 1194,
+   "visitas": 1236,
    "pracas": [
     {
      "ordem": 1,
@@ -1145,7 +587,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 416.400,00",
-   "visitas": 1165,
+   "visitas": 1205,
    "pracas": [
     {
      "ordem": 1,
@@ -1181,7 +623,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 2.670.000,00",
-   "visitas": 1270,
+   "visitas": 1347,
    "pracas": [
     {
      "ordem": 1,
@@ -1217,7 +659,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 415.200,00",
-   "visitas": 1086,
+   "visitas": 1122,
    "pracas": [
     {
      "ordem": 1,
@@ -1253,7 +695,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 219.600,00",
-   "visitas": 1095,
+   "visitas": 1134,
    "pracas": [
     {
      "ordem": 1,
@@ -1289,7 +731,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 343.200,00",
-   "visitas": 1288,
+   "visitas": 1345,
    "pracas": [
     {
      "ordem": 1,
@@ -1325,7 +767,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 793.200,00",
-   "visitas": 1119,
+   "visitas": 1162,
    "pracas": [
     {
      "ordem": 1,
@@ -1361,7 +803,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 373.519,29",
-   "visitas": 1599,
+   "visitas": 1699,
    "pracas": [
     {
      "ordem": 1,
@@ -1397,7 +839,7 @@
    "desconto": "48%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 450.000,00",
-   "visitas": 1078,
+   "visitas": 1122,
    "pracas": [
     {
      "ordem": 1,
@@ -1433,7 +875,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 430.000,00",
-   "visitas": 971,
+   "visitas": 1012,
    "pracas": [
     {
      "ordem": 1,
@@ -1469,7 +911,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 320.000,00",
-   "visitas": 974,
+   "visitas": 1009,
    "pracas": [
     {
      "ordem": 1,
@@ -1505,7 +947,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 455.000,00",
-   "visitas": 950,
+   "visitas": 986,
    "pracas": [
     {
      "ordem": 1,
@@ -1541,7 +983,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 400.000,00",
-   "visitas": 976,
+   "visitas": 1014,
    "pracas": [
     {
      "ordem": 1,
@@ -1577,7 +1019,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 325.000,00",
-   "visitas": 969,
+   "visitas": 1004,
    "pracas": [
     {
      "ordem": 1,
@@ -1613,7 +1055,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 470.000,00",
-   "visitas": 1303,
+   "visitas": 1356,
    "pracas": [
     {
      "ordem": 1,
@@ -1649,7 +1091,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 470.000,00",
-   "visitas": 1182,
+   "visitas": 1230,
    "pracas": [
     {
      "ordem": 1,
@@ -1685,7 +1127,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 768.000,00",
-   "visitas": 1119,
+   "visitas": 1182,
    "pracas": [
     {
      "ordem": 1,
@@ -1721,7 +1163,7 @@
    "desconto": "53%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 280.000,00",
-   "visitas": 1232,
+   "visitas": 1282,
    "pracas": [
     {
      "ordem": 1,
@@ -1757,7 +1199,7 @@
    "desconto": "43%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 170.000,00",
-   "visitas": 1072,
+   "visitas": 1111,
    "pracas": [
     {
      "ordem": 1,
@@ -1793,7 +1235,7 @@
    "desconto": "53%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 350.000,00",
-   "visitas": 1021,
+   "visitas": 1062,
    "pracas": [
     {
      "ordem": 1,
@@ -1829,7 +1271,7 @@
    "desconto": "49%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 475.000,00",
-   "visitas": 1168,
+   "visitas": 1216,
    "pracas": [
     {
      "ordem": 1,
@@ -1865,7 +1307,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 274.817,01",
-   "visitas": 1197,
+   "visitas": 1237,
    "pracas": [
     {
      "ordem": 1,
@@ -1901,7 +1343,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 1.385.677,39",
-   "visitas": 1133,
+   "visitas": 1187,
    "pracas": [
     {
      "ordem": 1,
@@ -1937,7 +1379,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 1.440.000,00",
-   "visitas": 1295,
+   "visitas": 1349,
    "pracas": [
     {
      "ordem": 1,
@@ -1973,7 +1415,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 412.800,00",
-   "visitas": 1049,
+   "visitas": 1091,
    "pracas": [
     {
      "ordem": 1,
@@ -2009,7 +1451,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 384.000,00",
-   "visitas": 1416,
+   "visitas": 1472,
    "pracas": [
     {
      "ordem": 1,
@@ -2045,7 +1487,7 @@
    "desconto": "60%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 196.830,00",
-   "visitas": 1115,
+   "visitas": 1158,
    "pracas": [
     {
      "ordem": 1,
@@ -2081,7 +1523,7 @@
    "desconto": "53%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 280.000,00",
-   "visitas": 1071,
+   "visitas": 1112,
    "pracas": [
     {
      "ordem": 1,
@@ -2117,7 +1559,7 @@
    "desconto": "7%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 140.000,00",
-   "visitas": 1040,
+   "visitas": 1075,
    "pracas": [
     {
      "ordem": 1,
@@ -2153,7 +1595,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 206.277,52",
-   "visitas": 1119,
+   "visitas": 1165,
    "pracas": [
     {
      "ordem": 1,
@@ -2189,7 +1631,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 206.277,52",
-   "visitas": 1091,
+   "visitas": 1128,
    "pracas": [
     {
      "ordem": 1,
@@ -2225,7 +1667,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 3.300.000,00",
-   "visitas": 1129,
+   "visitas": 1198,
    "pracas": [
     {
      "ordem": 1,
@@ -2261,7 +1703,7 @@
    "desconto": "56%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 150.000,00",
-   "visitas": 1019,
+   "visitas": 1057,
    "pracas": [
     {
      "ordem": 1,
@@ -2297,7 +1739,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 1.876.800,00",
-   "visitas": 1030,
+   "visitas": 1072,
    "pracas": [
     {
      "ordem": 1,
@@ -2333,7 +1775,7 @@
    "desconto": "47%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 895.000,00",
-   "visitas": 1121,
+   "visitas": 1174,
    "pracas": [
     {
      "ordem": 1,
@@ -2369,7 +1811,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 120.000,00",
-   "visitas": 1032,
+   "visitas": 1066,
    "pracas": [
     {
      "ordem": 1,
@@ -2405,7 +1847,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 180.000,00",
-   "visitas": 1204,
+   "visitas": 1255,
    "pracas": [
     {
      "ordem": 1,
@@ -2441,7 +1883,7 @@
    "desconto": "67%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 20.000,00",
-   "visitas": 983,
+   "visitas": 1019,
    "pracas": [
     {
      "ordem": 1,
@@ -2477,7 +1919,7 @@
    "desconto": "67%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 20.000,00",
-   "visitas": 943,
+   "visitas": 980,
    "pracas": [
     {
      "ordem": 1,
@@ -2513,7 +1955,7 @@
    "desconto": "67%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 20.000,00",
-   "visitas": 926,
+   "visitas": 965,
    "pracas": [
     {
      "ordem": 1,
@@ -2549,7 +1991,7 @@
    "desconto": "67%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 20.000,00",
-   "visitas": 933,
+   "visitas": 968,
    "pracas": [
     {
      "ordem": 1,
@@ -2585,7 +2027,7 @@
    "desconto": "67%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 20.000,00",
-   "visitas": 915,
+   "visitas": 950,
    "pracas": [
     {
      "ordem": 1,
@@ -2621,7 +2063,7 @@
    "desconto": "67%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 20.000,00",
-   "visitas": 945,
+   "visitas": 984,
    "pracas": [
     {
      "ordem": 1,
@@ -2657,7 +2099,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 209.400,00",
-   "visitas": 1370,
+   "visitas": 1443,
    "pracas": [
     {
      "ordem": 1,
@@ -2693,7 +2135,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 207.000,00",
-   "visitas": 480,
+   "visitas": 554,
    "pracas": [
     {
      "ordem": 1,
@@ -2720,7 +2162,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 337.500,00",
-   "visitas": 286,
+   "visitas": 323,
    "pracas": [
     {
      "ordem": 1,
@@ -2747,7 +2189,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 872.671,70",
-   "visitas": 314,
+   "visitas": 358,
    "pracas": [
     {
      "ordem": 1,
@@ -2774,7 +2216,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 286.200,00",
-   "visitas": 293,
+   "visitas": 368,
    "pracas": [
     {
      "ordem": 1,
@@ -2801,7 +2243,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 135.000,00",
-   "visitas": 328,
+   "visitas": 383,
    "pracas": [
     {
      "ordem": 1,
@@ -2828,7 +2270,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 249.425,93",
-   "visitas": 1219,
+   "visitas": 1257,
    "pracas": [
     {
      "ordem": 1,
@@ -2855,7 +2297,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 832.169,80",
-   "visitas": 371,
+   "visitas": 409,
    "pracas": [
     {
      "ordem": 1,
@@ -2882,7 +2324,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 381.500,00",
-   "visitas": 541,
+   "visitas": 614,
    "pracas": [
     {
      "ordem": 1,
@@ -2909,7 +2351,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 490.500,00",
-   "visitas": 458,
+   "visitas": 503,
    "pracas": [
     {
      "ordem": 1,
@@ -2936,7 +2378,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 68.000,00",
-   "visitas": 378,
+   "visitas": 416,
    "pracas": [
     {
      "ordem": 1,
@@ -2963,7 +2405,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 560.000,00",
-   "visitas": 372,
+   "visitas": 412,
    "pracas": [
     {
      "ordem": 1,
@@ -2990,7 +2432,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 808.500,00",
-   "visitas": 350,
+   "visitas": 385,
    "pracas": [
     {
      "ordem": 1,
@@ -3017,7 +2459,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 282.000,00",
-   "visitas": 470,
+   "visitas": 514,
    "pracas": [
     {
      "ordem": 1,
@@ -3044,7 +2486,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 353.500,00",
-   "visitas": 345,
+   "visitas": 384,
    "pracas": [
     {
      "ordem": 1,
@@ -3071,7 +2513,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 150.000,00",
-   "visitas": 411,
+   "visitas": 449,
    "pracas": [
     {
      "ordem": 1,
@@ -3098,7 +2540,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 122.000,00",
-   "visitas": 354,
+   "visitas": 392,
    "pracas": [
     {
      "ordem": 1,
@@ -3125,7 +2567,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 836.500,00",
-   "visitas": 318,
+   "visitas": 353,
    "pracas": [
     {
      "ordem": 1,
@@ -3152,7 +2594,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 298.558,35",
-   "visitas": 467,
+   "visitas": 510,
    "pracas": [
     {
      "ordem": 1,
@@ -3179,7 +2621,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 599.000,00",
-   "visitas": 350,
+   "visitas": 385,
    "pracas": [
     {
      "ordem": 1,
@@ -3206,7 +2648,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 207.000,00",
-   "visitas": 470,
+   "visitas": 510,
    "pracas": [
     {
      "ordem": 1,
@@ -3233,7 +2675,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 250.000,00",
-   "visitas": 354,
+   "visitas": 389,
    "pracas": [
     {
      "ordem": 1,
@@ -3260,7 +2702,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 199.000,00",
-   "visitas": 409,
+   "visitas": 445,
    "pracas": [
     {
      "ordem": 1,
@@ -3287,7 +2729,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 625.500,00",
-   "visitas": 380,
+   "visitas": 416,
    "pracas": [
     {
      "ordem": 1,
@@ -3314,7 +2756,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 210.000,00",
-   "visitas": 337,
+   "visitas": 372,
    "pracas": [
     {
      "ordem": 1,
@@ -3341,7 +2783,7 @@
    "desconto": "18%",
    "descontoTexto": "abaixo da avaliação",
    "precoDestaque": "R$ 350.000,00",
-   "visitas": 1620,
+   "visitas": 1652,
    "pracas": [
     {
      "ordem": 1,
@@ -3368,7 +2810,7 @@
    "desconto": "18%",
    "descontoTexto": "abaixo da avaliação",
    "precoDestaque": "R$ 350.000,00",
-   "visitas": 1647,
+   "visitas": 1679,
    "pracas": [
     {
      "ordem": 1,
@@ -3395,7 +2837,7 @@
    "desconto": "21%",
    "descontoTexto": "abaixo da avaliação",
    "precoDestaque": "R$ 350.000,00",
-   "visitas": 1697,
+   "visitas": 1728,
    "pracas": [
     {
      "ordem": 1,
@@ -3422,7 +2864,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 94.000,00",
-   "visitas": 352,
+   "visitas": 386,
    "pracas": [
     {
      "ordem": 1,
@@ -3449,7 +2891,7 @@
    "desconto": "42%",
    "descontoTexto": "abaixo da avaliação",
    "precoDestaque": "R$ 35.000,00",
-   "visitas": 1641,
+   "visitas": 1674,
    "pracas": [
     {
      "ordem": 1,
@@ -3476,7 +2918,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 649.000,00",
-   "visitas": 385,
+   "visitas": 455,
    "pracas": [
     {
      "ordem": 1,
@@ -3503,7 +2945,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 228.000,00",
-   "visitas": 345,
+   "visitas": 381,
    "pracas": [
     {
      "ordem": 1,
@@ -3530,7 +2972,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 212.500,00",
-   "visitas": 340,
+   "visitas": 379,
    "pracas": [
     {
      "ordem": 1,
@@ -3557,7 +2999,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 207.000,00",
-   "visitas": 363,
+   "visitas": 405,
    "pracas": [
     {
      "ordem": 1,
@@ -3584,7 +3026,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 150.000,00",
-   "visitas": 330,
+   "visitas": 365,
    "pracas": [
     {
      "ordem": 1,
@@ -3611,7 +3053,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 180.500,00",
-   "visitas": 337,
+   "visitas": 371,
    "pracas": [
     {
      "ordem": 1,
@@ -3620,33 +3062,6 @@
      "dataBr": "31/08/2026",
      "hora": "15:00",
      "valor": "R$ 180.500,00",
-     "encerrada": false
-    }
-   ]
-  },
-  {
-   "id": 1793,
-   "titulo": "Terreno 305m² - Taubaté/SP",
-   "url": "https://leiloariasmart.com.br/imovel/1793",
-   "imagem": "https://leiloariasmart.com.br/_admin_/upload/c1cfcc3795b554a12a52728a3638a448.jpg",
-   "tipo": "Terreno",
-   "cidade": "Taubaté",
-   "uf": "SP",
-   "modalidade": "Extrajudicial",
-   "comitente": "Banco Inter S.A",
-   "situacao": null,
-   "desconto": null,
-   "descontoTexto": null,
-   "precoDestaque": "R$ 183.000,00",
-   "visitas": 382,
-   "pracas": [
-    {
-     "ordem": 1,
-     "rotulo": "Praça única",
-     "data": "2026-08-31",
-     "dataBr": "31/08/2026",
-     "hora": "15:10",
-     "valor": "R$ 183.000,00",
      "encerrada": false
     }
    ]
@@ -3665,7 +3080,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.040.000,00",
-   "visitas": 368,
+   "visitas": 409,
    "pracas": [
     {
      "ordem": 1,
@@ -3692,7 +3107,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 499.000,00",
-   "visitas": 339,
+   "visitas": 370,
    "pracas": [
     {
      "ordem": 1,
@@ -3719,7 +3134,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 888.000,00",
-   "visitas": 363,
+   "visitas": 399,
    "pracas": [
     {
      "ordem": 1,
@@ -3746,7 +3161,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 86.500,00",
-   "visitas": 357,
+   "visitas": 391,
    "pracas": [
     {
      "ordem": 1,
@@ -3773,7 +3188,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 82.000,00",
-   "visitas": 497,
+   "visitas": 556,
    "pracas": [
     {
      "ordem": 1,
@@ -3800,7 +3215,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 168.000,00",
-   "visitas": 341,
+   "visitas": 375,
    "pracas": [
     {
      "ordem": 1,
@@ -3827,7 +3242,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 79.300,00",
-   "visitas": 545,
+   "visitas": 582,
    "pracas": [
     {
      "ordem": 1,
@@ -3854,7 +3269,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.845.000,00",
-   "visitas": 516,
+   "visitas": 549,
    "pracas": [
     {
      "ordem": 1,
@@ -3881,7 +3296,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 78.500,00",
-   "visitas": 499,
+   "visitas": 537,
    "pracas": [
     {
      "ordem": 1,
@@ -3908,7 +3323,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.206.000,00",
-   "visitas": 612,
+   "visitas": 649,
    "pracas": [
     {
      "ordem": 1,
@@ -3935,7 +3350,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 2.096.000,00",
-   "visitas": 535,
+   "visitas": 570,
    "pracas": [
     {
      "ordem": 1,
@@ -3962,7 +3377,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 347.000,00",
-   "visitas": 507,
+   "visitas": 546,
    "pracas": [
     {
      "ordem": 1,
@@ -3989,7 +3404,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 700.000,00",
-   "visitas": 514,
+   "visitas": 548,
    "pracas": [
     {
      "ordem": 1,
@@ -4016,7 +3431,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 369.000,00",
-   "visitas": 607,
+   "visitas": 649,
    "pracas": [
     {
      "ordem": 1,
@@ -4043,7 +3458,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 3.198.000,00",
-   "visitas": 582,
+   "visitas": 621,
    "pracas": [
     {
      "ordem": 1,
@@ -4070,7 +3485,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.392.000,00",
-   "visitas": 534,
+   "visitas": 573,
    "pracas": [
     {
      "ordem": 1,
@@ -4097,7 +3512,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 436.000,00",
-   "visitas": 567,
+   "visitas": 608,
    "pracas": [
     {
      "ordem": 1,
@@ -4124,7 +3539,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.709.000,00",
-   "visitas": 523,
+   "visitas": 556,
    "pracas": [
     {
      "ordem": 1,
@@ -4151,7 +3566,7 @@
    "desconto": "50%",
    "descontoTexto": "abaixo da avaliação",
    "precoDestaque": "R$ 50.000,00",
-   "visitas": 3447,
+   "visitas": 3487,
    "pracas": [
     {
      "ordem": 1,
@@ -4178,7 +3593,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.450.000,00",
-   "visitas": 1022,
+   "visitas": 1055,
    "pracas": [
     {
      "ordem": 1,
@@ -4205,7 +3620,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 135.000,00",
-   "visitas": 1000,
+   "visitas": 1037,
    "pracas": [
     {
      "ordem": 1,
@@ -4232,7 +3647,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 750.000,00",
-   "visitas": 916,
+   "visitas": 944,
    "pracas": [
     {
      "ordem": 1,
@@ -4259,7 +3674,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 95.590,24",
-   "visitas": 968,
+   "visitas": 1003,
    "pracas": [
     {
      "ordem": 1,
@@ -4286,7 +3701,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 95.590,24",
-   "visitas": 988,
+   "visitas": 1023,
    "pracas": [
     {
      "ordem": 1,
@@ -4313,7 +3728,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 394.018,31",
-   "visitas": 941,
+   "visitas": 976,
    "pracas": [
     {
      "ordem": 1,
@@ -4340,7 +3755,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 76.938,49",
-   "visitas": 959,
+   "visitas": 994,
    "pracas": [
     {
      "ordem": 1,
@@ -4367,7 +3782,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 465.700,00",
-   "visitas": 983,
+   "visitas": 1018,
    "pracas": [
     {
      "ordem": 1,
@@ -4394,7 +3809,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 378.000,00",
-   "visitas": 938,
+   "visitas": 975,
    "pracas": [
     {
      "ordem": 1,
@@ -4421,7 +3836,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 110.000,00",
-   "visitas": 948,
+   "visitas": 983,
    "pracas": [
     {
      "ordem": 1,
@@ -4448,7 +3863,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 69.000,00",
-   "visitas": 919,
+   "visitas": 954,
    "pracas": [
     {
      "ordem": 1,
@@ -4475,7 +3890,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 60.000,00",
-   "visitas": 928,
+   "visitas": 962,
    "pracas": [
     {
      "ordem": 1,
@@ -4502,7 +3917,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 73.000,00",
-   "visitas": 925,
+   "visitas": 961,
    "pracas": [
     {
      "ordem": 1,
@@ -4529,7 +3944,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 105.000,00",
-   "visitas": 935,
+   "visitas": 969,
    "pracas": [
     {
      "ordem": 1,
@@ -4556,7 +3971,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 74.087,06",
-   "visitas": 944,
+   "visitas": 980,
    "pracas": [
     {
      "ordem": 1,
@@ -4583,7 +3998,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 61.562,45",
-   "visitas": 943,
+   "visitas": 978,
    "pracas": [
     {
      "ordem": 1,
@@ -4610,7 +4025,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 61.562,45",
-   "visitas": 942,
+   "visitas": 978,
    "pracas": [
     {
      "ordem": 1,
@@ -4637,7 +4052,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 61.562,45",
-   "visitas": 952,
+   "visitas": 990,
    "pracas": [
     {
      "ordem": 1,
@@ -4664,7 +4079,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 61.562,45",
-   "visitas": 939,
+   "visitas": 975,
    "pracas": [
     {
      "ordem": 1,
@@ -4691,7 +4106,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 61.562,45",
-   "visitas": 962,
+   "visitas": 998,
    "pracas": [
     {
      "ordem": 1,
@@ -4718,7 +4133,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 61.562,45",
-   "visitas": 977,
+   "visitas": 1013,
    "pracas": [
     {
      "ordem": 1,
@@ -4745,7 +4160,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 61.562,45",
-   "visitas": 956,
+   "visitas": 989,
    "pracas": [
     {
      "ordem": 1,
@@ -4772,7 +4187,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 434.000,00",
-   "visitas": 930,
+   "visitas": 963,
    "pracas": [
     {
      "ordem": 1,
@@ -4799,7 +4214,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 269.370,00",
-   "visitas": 974,
+   "visitas": 1007,
    "pracas": [
     {
      "ordem": 1,
@@ -4826,7 +4241,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 2.000.000,00",
-   "visitas": 508,
+   "visitas": 545,
    "pracas": [
     {
      "ordem": 1,
@@ -4853,7 +4268,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 791.000,00",
-   "visitas": 474,
+   "visitas": 513,
    "pracas": [
     {
      "ordem": 1,
@@ -4880,7 +4295,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 785.000,00",
-   "visitas": 469,
+   "visitas": 505,
    "pracas": [
     {
      "ordem": 1,
@@ -4907,7 +4322,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 705.000,00",
-   "visitas": 500,
+   "visitas": 535,
    "pracas": [
     {
      "ordem": 1,
@@ -4934,7 +4349,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 333.528,35",
-   "visitas": 989,
+   "visitas": 1025,
    "pracas": [
     {
      "ordem": 1,
@@ -4961,7 +4376,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 217.000,00",
-   "visitas": 510,
+   "visitas": 543,
    "pracas": [
     {
      "ordem": 1,
@@ -4988,7 +4403,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 333.528,37",
-   "visitas": 953,
+   "visitas": 990,
    "pracas": [
     {
      "ordem": 1,
@@ -5015,7 +4430,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 102.472,68",
-   "visitas": 940,
+   "visitas": 974,
    "pracas": [
     {
      "ordem": 1,
@@ -5042,7 +4457,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 669.000,00",
-   "visitas": 975,
+   "visitas": 1010,
    "pracas": [
     {
      "ordem": 1,
@@ -5069,7 +4484,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 1.894.900,00",
-   "visitas": 1032,
+   "visitas": 1071,
    "pracas": [
     {
      "ordem": 1,
@@ -5096,7 +4511,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 5.000.000,00",
-   "visitas": 1007,
+   "visitas": 1043,
    "pracas": [
     {
      "ordem": 1,
@@ -5123,7 +4538,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 78.660,67",
-   "visitas": 438,
+   "visitas": 465,
    "pracas": [
     {
      "ordem": 1,
@@ -5150,7 +4565,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 2.046.703,43",
-   "visitas": 251,
+   "visitas": 290,
    "pracas": [
     {
      "ordem": 1,
@@ -5177,7 +4592,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 80.000,00",
-   "visitas": 645,
+   "visitas": 678,
    "pracas": [
     {
      "ordem": 1,
@@ -5204,7 +4619,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 80.000,00",
-   "visitas": 37,
+   "visitas": 69,
    "pracas": [
     {
      "ordem": 1,
@@ -5213,6 +4628,33 @@
      "dataBr": "22/09/2026",
      "hora": "14:00",
      "valor": "R$ 80.000,00",
+     "encerrada": false
+    }
+   ]
+  },
+  {
+   "id": 1815,
+   "titulo": "Casa 211m² Lajeado/RS",
+   "url": "https://leiloariasmart.com.br/imovel/1815",
+   "imagem": "https://leiloariasmart.com.br/_admin_/upload/cb343696566d6bc17c2027d17da6490e.png",
+   "tipo": "Casa",
+   "cidade": "Lajeado",
+   "uf": "RS",
+   "modalidade": "Extrajudicial",
+   "comitente": "Santiago Home Equity FIDC",
+   "situacao": null,
+   "desconto": "21%",
+   "descontoTexto": "abaixo da avaliação",
+   "precoDestaque": "R$ 300.000,00",
+   "visitas": 38,
+   "pracas": [
+    {
+     "ordem": 1,
+     "rotulo": "Praça única",
+     "data": "2026-10-02",
+     "dataBr": "02/10/2026",
+     "hora": "15:00",
+     "valor": "R$ 300.000,00",
      "encerrada": false
     }
    ]
@@ -5231,7 +4673,7 @@
    "desconto": null,
    "descontoTexto": null,
    "precoDestaque": "R$ 90.000,00",
-   "visitas": 28,
+   "visitas": 59,
    "pracas": [
     {
      "ordem": 1,
@@ -5258,7 +4700,7 @@
    "desconto": "-1%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 225.742,03",
-   "visitas": 224,
+   "visitas": 270,
    "pracas": [
     {
      "ordem": 1,
@@ -5294,7 +4736,7 @@
    "desconto": "7%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 108.506,75",
-   "visitas": 604,
+   "visitas": 646,
    "pracas": [
     {
      "ordem": 1,
@@ -5330,7 +4772,7 @@
    "desconto": "9%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 2.388.480,92",
-   "visitas": 633,
+   "visitas": 670,
    "pracas": [
     {
      "ordem": 1,
@@ -5366,7 +4808,7 @@
    "desconto": "-76%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 250.000,00",
-   "visitas": 309,
+   "visitas": 341,
    "pracas": [
     {
      "ordem": 1,
@@ -5402,7 +4844,7 @@
    "desconto": "-15%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 407.664,00",
-   "visitas": 882,
+   "visitas": 919,
    "pracas": [
     {
      "ordem": 1,
@@ -5438,7 +4880,7 @@
    "desconto": "38%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 388.102,14",
-   "visitas": 590,
+   "visitas": 635,
    "pracas": [
     {
      "ordem": 1,
@@ -5474,7 +4916,7 @@
    "desconto": "-3%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 445.670,00",
-   "visitas": 200,
+   "visitas": 233,
    "pracas": [
     {
      "ordem": 1,
@@ -5510,7 +4952,7 @@
    "desconto": "28%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 330.000,00",
-   "visitas": 500,
+   "visitas": 551,
    "pracas": [
     {
      "ordem": 1,
@@ -5546,7 +4988,7 @@
    "desconto": "45%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 163.132,90",
-   "visitas": 31,
+   "visitas": 66,
    "pracas": [
     {
      "ordem": 1,
@@ -5582,7 +5024,7 @@
    "desconto": "4%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 410.715,73",
-   "visitas": 101,
+   "visitas": 133,
    "pracas": [
     {
      "ordem": 1,
@@ -5618,7 +5060,7 @@
    "desconto": "48%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 125.549,58",
-   "visitas": 416,
+   "visitas": 466,
    "pracas": [
     {
      "ordem": 1,
@@ -5654,7 +5096,7 @@
    "desconto": "-11%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 114.708,02",
-   "visitas": 24,
+   "visitas": 56,
    "pracas": [
     {
      "ordem": 1,
@@ -5690,7 +5132,7 @@
    "desconto": "2%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 156.720,00",
-   "visitas": 105,
+   "visitas": 137,
    "pracas": [
     {
      "ordem": 1,
@@ -5726,7 +5168,7 @@
    "desconto": "40%",
    "descontoTexto": "abaixo na 2ª praça",
    "precoDestaque": "R$ 194.400,00",
-   "visitas": 1729,
+   "visitas": 1790,
    "pracas": [
     {
      "ordem": 1,
